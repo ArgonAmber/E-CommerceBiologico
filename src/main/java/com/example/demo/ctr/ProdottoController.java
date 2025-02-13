@@ -2,6 +2,8 @@ package com.example.demo.ctr;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.repo.ProdottoRepository;
@@ -13,9 +15,13 @@ import com.example.demo.repo.ProdottoRepository;
 public class ProdottoController {
 	
 	@Autowired
-	private ProdottoRepository pr; // definiamo un'interfaccia privata ProdottoRepository con cui richiamiamo i metodi CRUD
+	private ProdottoRepository prodottoRepository; // definiamo un'interfaccia privata ProdottoRepository con cui richiamiamo i metodi CRUD
 
-	
+	 @GetMapping("/prodotti")
+	    public String getProdotti(Model model) {
+	        model.addAttribute("prodotti", prodottoRepository.findAll());
+	        return "prodotti";
+	    }
 	
 
 }

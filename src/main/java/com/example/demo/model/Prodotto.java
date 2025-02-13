@@ -4,7 +4,9 @@ import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table("prodotto")
 public class Prodotto {
 	
 	@Id // annotazione spring che collega l'attributo id della classe all'id della tabella su MySQL
