@@ -24,8 +24,25 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
+    
+        <!-- Per utilizzare SpringSecurity -->
 
-    <!-- Per utilizzare le JSP -->
+	<!--
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+-->
+
+
+        <!-- logging per diagnostica -->
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-logging</artifactId>
+	</dependency>
+
+		<!-- Per utilizzare le JSP -->
     <dependency>
         <groupId>org.apache.tomcat.embed</groupId>
         <artifactId>tomcat-embed-jasper</artifactId>
@@ -34,10 +51,11 @@
     <dependency>
         <groupId>jakarta.servlet</groupId>
         <artifactId>jakarta.servlet-api</artifactId>
+        <version>6.0.0</version> <!--$NO-MVN-MAN-VER$ warning ignorato-->
         <scope>provided</scope>
     </dependency>
 
-    <!-- Dipendenze per JSTL -->
+		<!-- Dipendenze per JSTL -->
     <dependency>
         <groupId>jakarta.servlet.jsp.jstl</groupId>
         <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -47,19 +65,19 @@
         <artifactId>jakarta.servlet.jsp.jstl</artifactId>
     </dependency>
 
-    <!-- Per Spring Data JDBC -->
+		<!-- Per Spring Data JDBC -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jdbc</artifactId>
     </dependency>
 
-    <!-- Per Spring Web -->
+		<!-- Per Spring Web -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
-    <!-- Per DevTools -->
+		<!-- Per DevTools -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-devtools</artifactId>
@@ -67,26 +85,27 @@
         <optional>true</optional>
     </dependency>
 
-    <!-- Per Spring Boot Tomcat -->
+		<!-- Per Spring Boot Tomcat -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-tomcat</artifactId>
         <scope>provided</scope>
     </dependency>
 
-    <!-- Per i test -->
+		<!-- Per i test -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
         <scope>test</scope>
     </dependency>
 
-<!-- Per MYSQL, IMPORTANTE!!!! -->
+		<!-- Per MYSQL, IMPORTANTE!!!! -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.29</version>
 		</dependency>
+		
 </dependencies>
 
     <build>

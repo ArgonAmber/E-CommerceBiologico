@@ -26,3 +26,9 @@ zuccheri DECIMAL NOT NULL,
 proteine DECIMAL NOT NULL,
 sale DECIMAL NOT NULL
 );
+
+CREATE TABLE Account (
+id int auto_increment primary key,
+username varchar(255) unique not null,
+password varchar(255) unique not null
+);
