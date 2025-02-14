@@ -4,28 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bamboo - E-commerce Bio</title>
+    <title>Bamboo | E-commerce Bio</title>
     
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}static/css/style.css">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css">    <link rel="stylesheet" href="${pageContext.request.contextPath}style.css">
+    <!-- CSS nostro -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}style.css">
 </head>
 
 <body>
-
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-    <img src="${pageContext.request.contextPath}/static/immagini/logoBamboo.png" alt="Bamboo Logo" class="logo-navbar">
-</a>
+                <img src="${pageContext.request.contextPath}/immagini/logoBamboo.png" alt="Bamboo Logo" class="logo-navbar">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">                   
-                    <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Registrati</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/views/welcome.jsp">
+                            <i class="bi bi-person"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -39,37 +44,37 @@
         </div>
     </header>
 
-<!-- Sezione Filtri -->
-<div class="container text-center py-4">
-    <h2>Filtra i prodotti per categoria</h2>
-    <div class="d-flex flex-column align-items-center gap-3 mt-3">
-        <!-- Prima riga: Frutta & Verdura -->
-        <div class="d-flex gap-4">
-            <button class="btn btn-success btn-lg d-flex align-items-center justify-content-center px-5 py-3"
-                style="width: 260px; height: 80px;" onclick="showCategory('frutta')">
-                <span class="fs-2 me-2">🍎</span> <span class="fs-3 fw-bold text-nowrap">Frutta</span>
-            </button>
-            <button class="btn btn-success btn-lg d-flex align-items-center justify-content-center px-5 py-3"
-                style="width: 260px; height: 80px;" onclick="showCategory('verdura')">
-                <span class="fs-2 me-2">🥕</span> <span class="fs-3 fw-bold text-nowrap">Verdura</span>
-            </button>
-
-            <button class="btn btn-success btn-lg d-flex align-items-center justify-content-center px-5 py-3"
-                style="width: 260px; height: 80px;" onclick="showCategory('pasta')">
-                <span class="fs-2 me-2">🍝</span> <span class="fs-3 fw-bold text-nowrap">Pasta & Riso</span>
-            </button>
-            <button class="btn btn-success btn-lg d-flex align-items-center justify-content-center px-5 py-3"
-                style="width: 260px; height: 80px;" onclick="showCategory('bevande')">
-                <span class="fs-2 me-2">🥤</span> <span class="fs-3 fw-bold text-nowrap">Bevande</span>
-            </button>
-        </div>
+    <!-- Sezione Catalogo -->
+    <div class="container text-center py-5">
+        <h2>Catalogo Prodotti</h2>
     </div>
-</div>
 
-    <!-- Sezione Catalogo (Inizialmente vuota, riempita dai filtri) -->
-    <div class="container py-4">
-        <div id="catalogo">
-            <p class="text-center">Seleziona una categoria per visualizzare i prodotti.</p>
+    <div class="container">
+        <!-- Sezione Frutta -->
+        <h3>Frutta</h3>
+        <div class="row">
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/frutta/banane.jpg" alt="Banana"><p>Banana - €2,60</p></div>
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/frutta/arance.jpg" alt="Arancia"><p>Arancia - €3,20</p></div>
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/frutta/mele.jpg" alt="Mela"><p>Mela - €2,70</p></div>
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/frutta/mango.jpg" alt="Mango"><p>Mango - €3,50</p></div>
+        </div>
+        
+        <!-- Sezione Verdura -->
+        <h3>Verdura</h3>
+        <div class="row">
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/verdura/broccoli.jpg" alt="Broccoli"><p>Broccoli - €1,80</p></div>
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/verdura/cavolfiori.jpg" alt="Cavolfiore"><p>Cavolfiore - €2,10</p></div>
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/verdura/carote.jpg" alt="Carote"><p>Carote - €1,90</p></div>
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/verdura/pomodori.jpg" alt="Pomodori"><p>Pomodori - €1,80</p></div>
+        </div>
+
+        <!-- Sezione Bevande -->
+        <h3>Bevande</h3>
+        <div class="row">
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/bevande/succoallamela.jpg" alt="Succo di Mela"><p>Succo di Mela - €2,30</p></div>
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/bevande/bevandaallafragola.jpg" alt="Latte alla Fragola"><p>Latte alla Fragola - €2,10</p></div>
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/bevande/lattealcoccoo.jpg" alt="Latte al Cocco"><p>Latte al Cocco - €2,50</p></div>
+            <div class="col-md-3"><img src="${pageContext.request.contextPath}/immagini/prodotti/bevande/limonatasiciliana.jpg" alt="Limonata Siciliana"><p>Limonata Siciliana - €2,40</p></div>
         </div>
     </div>
 
@@ -77,16 +82,8 @@
     <footer class="text-center py-3 bg-dark text-white">
         <p>&copy; 2025 Bamboo - Tutti i diritti riservati.</p>
     </footer>
-
-    <!-- Bootstrap JS (per il menu mobile) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Script per i filtri -->
-    <script>
-        function showCategory(category) {
-            document.getElementById("catalogo").innerHTML = "<p class='text-center'>Caricamento prodotti " + category + "...</p>";
-        }
-    </script>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

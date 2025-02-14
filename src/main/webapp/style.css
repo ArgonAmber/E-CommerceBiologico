@@ -41,3 +41,17 @@
     height: 72px; /* Regola l'altezza del logo */
     width: auto;  /* Mantiene le proporzioni corrette */
 }
+
+.nav-link .bi {
+	font-size: 1.5em;
+	color: #658127;
+	border: solid #658127 2px;
+	border-radius: 50%; /* Questo renderà l'icona un cerchio perfetto */
+    width: 1.3em; /* Imposta la larghezza dell'icona */
+    height: 1.3em; /* Imposta l'altezza dell'icona */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.4em; /* Mantiene la dimensione minima */
+    min-height: 1.4em; /* Mantiene la dimensione minima */
+}

@@ -6,6 +6,6 @@
 </head>
 <body>
     <h1>Operazione completata con successo!</h1>
-    <a href="../home.html">Home</a>
+    <a href="../home.jsp">Home</a>
 </body>
 </html>
