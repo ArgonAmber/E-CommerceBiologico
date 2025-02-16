@@ -4,7 +4,9 @@
 <html>
 <body>
     <h2>Welcome</h2>
-     <form action="login" method="post">
+     <form action="/login" method="post">
+        <!-- PER IL TOKEN CSRF -->
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br><br>
         <label for="password">Password:</label>
