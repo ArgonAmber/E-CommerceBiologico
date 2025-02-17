@@ -1,52 +1,149 @@
-/* Stile per l'header con immagine di sfondo */
-.hero-section {
-    background: url('../images/BambooCopertinaC.jpg') center/cover no-repeat;
-    height: 500px; /* Modifica questa altezza se vuoi più spazio */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
+/*/////////////////NAVBAR///////////////////////////////////////////////*/
+
+.navbar {
+    height: 4em;
+    background-color: #5f4822; /* Colore di sfondo della navbar */
     position: relative;
 }
 
-/* Overlay leggero per rendere il testo più leggibile */
-.hero-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Overlay trasparente */
+.navbar-toggler {
+    border: none; /* Rimuove il bordo predefinito del pulsante */
+    background-color: transparent; /* Rende il pulsante trasparente */
+    padding: 0;
 }
 
-/* Stile del testo sopra l'header */
-.hero-content {
-    position: relative;
-    z-index: 1; /* Assicura che il testo sia sopra l'overlay */
-    text-align: left; /* Allinea il testo a sinistra */
-    width: 80%; /* Mantiene il testo leggibile senza andare sul bordo */
-    margin-left: 5%; /* Distanza dal bordo sinistro */
-    margin-top: -200px;
+.navbar-toggler .bi {
+    color: #e5dbab; /* Colore dell'icona */
 }
 
-.hero-content h1, .hero-content p {
-    color: #ffffff; /* Bianco puro */
-    font-weight: bold; /* Testo più visibile */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); /* Aumenta contrasto per leggibilità */
-}
-
-.logo-navbar {
-    height: 72px; /* Regola l'altezza del logo */
+.navbar-brand {
+    height: 55px; /* Altezza del logo */
     width: auto;  /* Mantiene le proporzioni corrette */
 }
 
+.navbar-nav {
+    margin-left: 7px;
+}
+
+.nav-item + .nav-item {
+    margin-left: 0px; /* Riduci la distanza */
+    padding: 0;
+}
+
+.logo-navbar {
+    max-height: 100%; /* Imposta l'altezza massima del logo */
+    width: auto;  /* Mantiene le proporzioni corrette */
+}
+
+.nav-link {
+    color: #e5dbab; /* Colore delle scritte */
+    padding: 0;
+    font-size: 0.95rem; /* Dimensione font */
+}
+
+.nav-item.separator {
+    display: flex;
+    align-items: center;
+    padding: 0; /* Aggiungi spazio attorno alla barra */
+    color: #e5dbab;
+}
+
+@media (min-width: 992px) {
+    .navbar .custom-search-container {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center; /* Centra il contenitore */
+    }
+    .navbar .custom-search-form {
+        width: 300px; /* Imposta la larghezza della barra di ricerca */
+        display: flex;
+        position: relative;
+    }
+    .navbar .form-control {
+        flex-grow: 1;
+        padding-right: 60px; /* Aumenta in base alla larghezza di "ctrl K" */
+    }
+    .navbar .input-group-text {
+        position: absolute;
+        right: 10px; /* Regola questa distanza in base alla larghezza della barra di ricerca */
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent; /* Assicura che lo sfondo sia trasparente */
+        border: none; /* Rimuovi i bordi */
+        color: #6c757d; /* Colore del testo */
+        padding: 0 5px; /* Aggiungi un po' di padding per margine */
+    }
+}
+
+.custom-search-container {
+    display: flex;
+    justify-content: center; /* Centra il contenitore */
+    width: 100%; /* Occupa tutta la larghezza disponibile */
+    max-width: 300px; /* Larghezza massima della barra di ricerca */
+    position: relative;
+}
+
+.custom-search-form {
+    display: flex;
+    align-items: center;
+    position: relative; /* Necessario per il posizionamento assoluto */
+    width: 100%;
+}
+
+.custom-search-form .form-control {
+    flex-grow: 1;
+    padding-right: 60px; /* Aumenta in base alla larghezza di "ctrl K" */
+}
+
+.custom-search-form .input-group-text {
+    position: absolute;
+    right: 10px; /* Regola questa distanza in base alla larghezza della barra di ricerca */
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent; /* Assicura che lo sfondo sia trasparente */
+    border: none; /* Rimuovi i bordi */
+    color: #6c757d; /* Colore del testo */
+    padding: 0 5px; /* Aggiungi un po' di padding per margine */
+}
+
+
+
+/* Contenitore del form di ricerca 
+.custom-search-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;  Centra il contenitore 
+    position: relative;
+}
+
+ Campo di input di ricerca 
+.custom-search-form {
+    display: flex;
+    align-items: center;
+    position: relative;  Necessario per il posizionamento assoluto 
+    width: 300px;  Imposta la larghezza desiderata 
+    margin: 0 auto;  Centra la barra di ricerca orizzontalmente 
+}
+
+
+
+ Span "ctrl K" 
+.custom-search-form .input-group-text {
+    position: absolute;
+    right: 10px; /* Regola questa distanza in base alla larghezza della barra di ricerca 
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent; /* Assicura che lo sfondo sia trasparente 
+    border: none; /* Rimuovi i bordi 
+    color: #6c757d; /* Colore del testo 
+    padding: 0 5px; /* Aggiungi un po' di padding per margine 
+} */
+
 .nav-link .bi {
-	font-size: 1.5em;
-	color: #658127;
-	border: solid #658127 2px;
-	border-radius: 50%; /* Questo renderà l'icona un cerchio perfetto */
+    font-size: 1.2em;
+    color: #e5dbab;
+    border: solid #e5dbab 2px;
+    border-radius: 50%; /* Questo renderà l'icona un cerchio perfetto */
     width: 1.3em; /* Imposta la larghezza dell'icona */
     height: 1.3em; /* Imposta l'altezza dell'icona */
     display: flex;
@@ -55,12 +152,3 @@
     min-width: 1.4em; /* Mantiene la dimensione minima */
     min-height: 1.4em; /* Mantiene la dimensione minima */
 }
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
