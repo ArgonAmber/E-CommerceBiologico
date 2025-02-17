@@ -24,10 +24,10 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                .requestMatchers("/", "/home", "/welcome", "/login", "/preReg", "/register", "/css/**", "/images/**", "/static/images/**", "/js/**", "/views/**").permitAll()
+                .requestMatchers("/", "/home", "/welcome", "/login", "/preReg", "/register", "/css/**", "/images/**", "/static/images/**","/static/js/**", "/js/**", "/views/**", "/prodotto/prodotti/categoria").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(formLogin -> formLogin

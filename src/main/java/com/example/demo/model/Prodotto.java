@@ -12,14 +12,26 @@ public class Prodotto {
 	@Id // annotazione spring che collega l'attributo id della classe all'id della tabella su MySQL
 	private int id;
 	
-	@Column("codArt") // annotazione spring che collega codArt della tabella al codArt attributo
-	private String codArt;
+	@Column("codProd") // annotazione spring che collega codArt della tabella al codArt attributo
+	private String codProd;
 	
+	@Column("nomeProdotto")
 	private String nomeProdotto;
+	
+	@Column("categoria")
 	private String categoria;
+	
+	@Column("descrizione")
 	private String descrizione;
+	
+	@Column("provenienza")
 	private String provenienza;
+	
+	@Column("prezzo")
 	private double prezzo;
+	
+	@Column("immagine")
+	private String immagine;
 	
 	public Prodotto() {
 		super();
@@ -29,7 +41,7 @@ public class Prodotto {
 	public Prodotto(String codArt, String nomeProdotto, String categoria, String descrizione,
 			String provenienza, double prezzo) {
 		super();
-		this.codArt = codArt;
+		this.codProd = codArt;
 		this.nomeProdotto = nomeProdotto;
 		this.categoria = categoria;
 		this.descrizione = descrizione;
@@ -38,10 +50,10 @@ public class Prodotto {
 	}
 
 	public Prodotto(int id, String codArt, String nomeProdotto, String categoria, String descrizione,
-			String provenienza, double prezzo) {
+			String provenienza, double prezzo, String immagine) {
 		super();
 		this.id = id;
-		this.codArt = codArt;
+		this.codProd = codArt;
 		this.nomeProdotto = nomeProdotto;
 		this.categoria = categoria;
 		this.descrizione = descrizione;
@@ -55,14 +67,6 @@ public class Prodotto {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getCodArt() {
-		return codArt;
-	}
-
-	public void setCodArt(String codArt) {
-		this.codArt = codArt;
 	}
 
 	public String getNomeProdotto() {
@@ -105,9 +109,25 @@ public class Prodotto {
 		this.prezzo = prezzo;
 	}
 
+	public String getCodProd() {
+		return codProd;
+	}
+
+	public void setCodProd(String codProd) {
+		this.codProd = codProd;
+	}
+
+	public String getImmagine() {
+		return immagine;
+	}
+
+	public void setImmagine(String immagine) {
+		this.immagine = immagine;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(categoria, codArt, descrizione, id, nomeProdotto, prezzo, provenienza);
+		return Objects.hash(categoria, codProd, descrizione, id, nomeProdotto, prezzo, provenienza, immagine);
 	}
 
 	@Override
@@ -119,7 +139,7 @@ public class Prodotto {
 		if (getClass() != obj.getClass())
 			return false;
 		Prodotto other = (Prodotto) obj;
-		return Objects.equals(categoria, other.categoria) && Objects.equals(codArt, other.codArt)
+		return Objects.equals(categoria, other.categoria) && Objects.equals(codProd, other.codProd)
 				&& Objects.equals(descrizione, other.descrizione) && id == other.id
 				&& Objects.equals(nomeProdotto, other.nomeProdotto)
 				&& Double.doubleToLongBits(prezzo) == Double.doubleToLongBits(other.prezzo)
@@ -128,7 +148,7 @@ public class Prodotto {
 
 	@Override
 	public String toString() {
-		return "ID: " + id + "\n Codice articolo: " + codArt + "\nNome prodotto: " + nomeProdotto + "\nCategoria: "
+		return "ID: " + id + "\n Codice articolo: " + codProd + "\nNome prodotto: " + nomeProdotto + "\nCategoria: "
 				+ categoria + "\nDescrizione: " + descrizione + "\nProvenienza: " + provenienza + "\nPrezzo: " + prezzo;
 	}
 
