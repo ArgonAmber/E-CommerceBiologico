@@ -1,0 +1,61 @@
+[33mcommit 0d1e2c0a6cbfa320a84cd77e78ea48895dceb8fc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: gvegg <gveggiotti@gmail.com>
+Date:   Mon Feb 17 10:28:31 2025 +0100
+
+    RiOrganizz. Progetto
+
+[33mcommit 477ae74b28710dd0425a977b433479cd9daf513d[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 67ee5e1 72d22f1
+Author: letspirito <emanuelecipriano.g@gmail.com>
+Date:   Fri Feb 14 16:10:23 2025 +0100
+
+    Resolved merge conflicts on pom.xml and application.properties
+
+[33mcommit 72d22f13cf924b8193ac97871fc8ee03475b3e29[m
+Author: gvegg <gveggiotti@gmail.com>
+Date:   Fri Feb 14 15:47:22 2025 +0100
+
+    First Home
+
+[33mcommit 67ee5e167f94e9f2dbb6d1b05d1cc6118366c81f[m[33m ([m[1;31morigin/backend[m[33m, [m[1;32mbackend[m[33m)[m
+Author: letspirito <emanuelecipriano.g@gmail.com>
+Date:   Fri Feb 14 13:17:01 2025 +0100
+
+    Implemented Register and Login functions
+
+[33mcommit 31ca1fd6fc91b4c37230870e537b709fa16d934f[m
+Author: letspirito <emanuelecipriano.g@gmail.com>
+Date:   Fri Feb 14 11:41:42 2025 +0100
+
+    Resolved bug on SpringSecurity and temporarly removed BCrypt implementation
+
+[33mcommit 4c35cf37392b4b3140a5246be2ed2ba08a7dc7b1[m
+Merge: a10c3a8 e084b04
+Author: letspirito <emanuelecipriano.g@gmail.com>
+Date:   Thu Feb 13 18:36:33 2025 +0100
+
+    Merge branch 'backend' of https://github.com/ArgonAmber/E-CommerceBiologico into backend
+
+[33mcommit a10c3a80abaa1f0cfb3801a58df50aa6b6ad3566[m
+Author: letspirito <emanuelecipriano.g@gmail.com>
+Date:   Thu Feb 13 18:35:39 2025 +0100
+
+    Fixed missing dependencies and worked on Account class and Prodotto class
+
+[33mcommit e084b04229c5730d92a278caa9f2273d29e1f97d[m
+Author: Peppe-1 <giuseppemarino166@gmail.com>
+Date:   Thu Feb 13 18:11:14 2025 +0100
+
+    Foglio sql
+
+[33mcommit 85da08adcc659d415113add2f552e156985ff5d2[m
+Author: letspirito <emanuelecipriano.g@gmail.com>
+Date:   Thu Feb 13 15:50:12 2025 +0100
+
+    Added ProdottoController, model and repo; added home and updated application.properties
+
+[33mcommit 196e38af74a2d7b6f8ec1e14f7c577b940a30673[m[33m ([m[1;31morigin/frontend[m[33m, [m[1;32mfrontend[m[33m)[m
+Author: letspirito <emanuelecipriano.g@gmail.com>
+Date:   Thu Feb 13 10:52:01 2025 +0100
+
+    Initialized project
