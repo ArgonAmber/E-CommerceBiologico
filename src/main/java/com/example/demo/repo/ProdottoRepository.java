@@ -18,7 +18,7 @@ public interface ProdottoRepository extends CrudRepository <Prodotto, Integer> {
     List<Prodotto> findAllProdotti();
 
     // Filtra per categoria
-    @Query("SELECT * FROM prodotto WHERE categoria = :categoria")
+    @Query("SELECT * FROM prodotto WHERE LOWER(categoria) = LOWER(:categoria)")
     List<Prodotto> findByCategoria(@Param("categoria") String categoria);
 
     // Filtra per categoria e prezzo massimo

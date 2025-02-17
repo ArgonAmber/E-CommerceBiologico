@@ -1,5 +1,5 @@
 // Oggetto contenente i prodotti suddivisi per categoria
-const products = {
+/*const products = {
 	"frutta": [
 		{ name: "Mirtilli", price: "€5,50", img: "/images/prodotti/frutta/mirtilli.jpg" },
 		{ name: "Banane", price: "€2,60", img: "/images/prodotti/frutta/banane.jpg" },
@@ -79,4 +79,33 @@ function showCategory(category) {
 			catalogo.innerHTML += productHTML;
 		});
 	}
+}
+*/
+
+function showCategory(categoria) {
+    fetch(`/prodotto/prodotti/categoria?categoria=${categoria}`)
+        .then(response => response.json()) // Converte la risposta in JSON
+        .then(data => {
+            let catalogo = document.getElementById("catalogo");
+            catalogo.innerHTML = ""; // Puliamo il catalogo
+
+            if (data.length === 0) {
+                catalogo.innerHTML = "<p class='text-center'>Nessun prodotto trovato.</p>";
+                return;
+            }
+
+            data.forEach(prodotto => {
+                let productHTML = `
+                    <div class="col-md-3">
+                        <div class="product-card">
+                            <img src="${prodotto.immagine}" alt="${prodotto.nomeProdotto}">
+                            <h5>${prodotto.nomeProdotto}</h5>
+                            <p>${prodotto.prezzo}€</p>
+                        </div>
+                    </div>
+                `;
+                catalogo.innerHTML += productHTML;
+            });
+        })
+        .catch(error => console.error("Errore nel caricamento dei prodotti:", error));
 }

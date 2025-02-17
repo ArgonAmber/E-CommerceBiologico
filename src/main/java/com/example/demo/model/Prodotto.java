@@ -8,20 +8,32 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Table("prodotto")
 public class Prodotto {
-	
-	@Id // annotazione spring che collega l'attributo id della classe all'id della tabella su MySQL
+
+	@Id // annotazione spring che collega l'attributo id della classe all'id della
+		// tabella su MySQL
 	private int id;
-	
-	@Column("codArt") // annotazione spring che collega codArt della tabella al codArt attributo
-	private String codProd;
-	
-	private String nomeProdotto;
-	private String categoria;
-	private String descrizione;
-	private String provenienza;
-	private double prezzo;
-	private String immagine;
-	
+
+    @Column("codProd") 
+    private String codProd;
+
+    @Column("nomeProdotto")  // Aggiunto mapping esplicito delle colonne
+    private String nomeProdotto;
+
+    @Column("categoria")
+    private String categoria;
+
+    @Column("descrizione")
+    private String descrizione;
+
+    @Column("provenienza")
+    private String provenienza;
+
+    @Column("prezzo")
+    private double prezzo;
+
+    @Column("immagine")
+    private String immagine;
+
 	public Prodotto(int id, String codProd, String nomeProdotto, String categoria, String descrizione,
 			String provenienza, double prezzo, String immagine) {
 		super();
@@ -130,9 +142,6 @@ public class Prodotto {
 		return "Prodotto [id=" + id + ", codProd=" + codProd + ", nomeProdotto=" + nomeProdotto + ", categoria="
 				+ categoria + ", descrizione=" + descrizione + ", provenienza=" + provenienza + ", prezzo=" + prezzo
 				+ ", immagine=" + immagine + "]";
-	}				
-	
-}
+	}
 
-	
-	
+}
