@@ -1,6 +1,6 @@
 /* Stile per l'header con immagine di sfondo */
 .hero-section {
-    background: url('../immagini/BambooCopertinaC.jpg') center/cover no-repeat;
+    background: url('/images/BambooCopertinaC.jpg') center/cover no-repeat;
     height: 500px; /* Modifica questa altezza se vuoi più spazio */
     display: flex;
     align-items: center;
@@ -41,3 +41,34 @@
     height: 72px; /* Regola l'altezza del logo */
     width: auto;  /* Mantiene le proporzioni corrette */
 }
+
+
+/* CSS DEI PRODOTTI */
+
+/* Stile per la colonna dei filtri */
+.col-md-3 {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Stile per la griglia dei prodotti */
+.product-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    background: white;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile per le immagini dei prodotti */
+.product-card img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
