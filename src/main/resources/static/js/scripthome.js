@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("sideMenu").addEventListener("click", function () {
         document.getElementById("sideMenu").style.width = "250px";
@@ -48,5 +49,3 @@ function showCategory(categoria) {
         })
         .catch(error => console.error("Errore nel caricamento dei prodotti:", error));
 }
-
-

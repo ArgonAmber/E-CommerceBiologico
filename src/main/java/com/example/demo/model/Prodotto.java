@@ -8,31 +8,32 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Table("prodotto")
 public class Prodotto {
-	
-	@Id // annotazione spring che collega l'attributo id della classe all'id della tabella su MySQL
+
+	@Id // annotazione spring che collega l'attributo id della classe all'id della
+		// tabella su MySQL
 	private int id;
-	
-	@Column("codProd") // annotazione spring che collega codArt della tabella al codArt attributo
-	private String codProd;
-	
-	@Column("nomeProdotto")
-	private String nomeProdotto;
-	
-	@Column("categoria")
-	private String categoria;
-	
-	@Column("descrizione")
-	private String descrizione;
-	
-	@Column("provenienza")
-	private String provenienza;
-	
-	@Column("prezzo")
-	private double prezzo;
-	
-	@Column("immagine")
-	private String immagine;
-	
+
+    @Column("codProd") 
+    private String codProd;
+
+    @Column("nomeProdotto")  // Aggiunto mapping esplicito delle colonne
+    private String nomeProdotto;
+
+    @Column("categoria")
+    private String categoria;
+
+    @Column("descrizione")
+    private String descrizione;
+
+    @Column("provenienza")
+    private String provenienza;
+
+    @Column("prezzo")
+    private double prezzo;
+
+    @Column("immagine")
+    private String immagine;
+
 	public Prodotto() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -61,6 +62,7 @@ public class Prodotto {
 		this.prezzo = prezzo;
 	}
 
+
 	public int getId() {
 		return id;
 	}
@@ -68,6 +70,15 @@ public class Prodotto {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public String getCodProd() {
+		return codProd;
+	}
+
+	public void setCodProd(String codProd) {
+		this.codProd = codProd;
+	}
+
 
 	public String getNomeProdotto() {
 		return nomeProdotto;
@@ -109,14 +120,6 @@ public class Prodotto {
 		this.prezzo = prezzo;
 	}
 
-	public String getCodProd() {
-		return codProd;
-	}
-
-	public void setCodProd(String codProd) {
-		this.codProd = codProd;
-	}
-
 	public String getImmagine() {
 		return immagine;
 	}
@@ -127,7 +130,8 @@ public class Prodotto {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(categoria, codProd, descrizione, id, nomeProdotto, prezzo, provenienza, immagine);
+	return Objects.hash(categoria, codProd, descrizione, id, immagine, nomeProdotto, prezzo, provenienza);
+
 	}
 
 	@Override
@@ -141,15 +145,16 @@ public class Prodotto {
 		Prodotto other = (Prodotto) obj;
 		return Objects.equals(categoria, other.categoria) && Objects.equals(codProd, other.codProd)
 				&& Objects.equals(descrizione, other.descrizione) && id == other.id
-				&& Objects.equals(nomeProdotto, other.nomeProdotto)
+				&& Objects.equals(immagine, other.immagine) && Objects.equals(nomeProdotto, other.nomeProdotto)
 				&& Double.doubleToLongBits(prezzo) == Double.doubleToLongBits(other.prezzo)
 				&& Objects.equals(provenienza, other.provenienza);
 	}
 
 	@Override
 	public String toString() {
-		return "ID: " + id + "\n Codice articolo: " + codProd + "\nNome prodotto: " + nomeProdotto + "\nCategoria: "
-				+ categoria + "\nDescrizione: " + descrizione + "\nProvenienza: " + provenienza + "\nPrezzo: " + prezzo;
+		return "Prodotto [id=" + id + ", codProd=" + codProd + ", nomeProdotto=" + nomeProdotto + ", categoria="
+				+ categoria + ", descrizione=" + descrizione + ", provenienza=" + provenienza + ", prezzo=" + prezzo
+				+ ", immagine=" + immagine + "]";
 	}
 
 }

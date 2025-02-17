@@ -29,4 +29,5 @@ public class ProdottoController {
         public List<Prodotto> getProdottiByCategoria(@RequestParam String categoria) {
             return prodottoRepository.findByCategoria(categoria);
         }
+
 }
