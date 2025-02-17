@@ -13,40 +13,31 @@ public class Prodotto {
 	private int id;
 	
 	@Column("codArt") // annotazione spring che collega codArt della tabella al codArt attributo
-	private String codArt;
+	private String codProd;
 	
 	private String nomeProdotto;
 	private String categoria;
 	private String descrizione;
 	private String provenienza;
 	private double prezzo;
+	private String immagine;
 	
+	public Prodotto(int id, String codProd, String nomeProdotto, String categoria, String descrizione,
+			String provenienza, double prezzo, String immagine) {
+		super();
+		this.id = id;
+		this.codProd = codProd;
+		this.nomeProdotto = nomeProdotto;
+		this.categoria = categoria;
+		this.descrizione = descrizione;
+		this.provenienza = provenienza;
+		this.prezzo = prezzo;
+		this.immagine = immagine;
+	}
+
 	public Prodotto() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	
-	public Prodotto(String codArt, String nomeProdotto, String categoria, String descrizione,
-			String provenienza, double prezzo) {
-		super();
-		this.codArt = codArt;
-		this.nomeProdotto = nomeProdotto;
-		this.categoria = categoria;
-		this.descrizione = descrizione;
-		this.provenienza = provenienza;
-		this.prezzo = prezzo;
-	}
-
-	public Prodotto(int id, String codArt, String nomeProdotto, String categoria, String descrizione,
-			String provenienza, double prezzo) {
-		super();
-		this.id = id;
-		this.codArt = codArt;
-		this.nomeProdotto = nomeProdotto;
-		this.categoria = categoria;
-		this.descrizione = descrizione;
-		this.provenienza = provenienza;
-		this.prezzo = prezzo;
 	}
 
 	public int getId() {
@@ -57,12 +48,12 @@ public class Prodotto {
 		this.id = id;
 	}
 
-	public String getCodArt() {
-		return codArt;
+	public String getCodProd() {
+		return codProd;
 	}
 
-	public void setCodArt(String codArt) {
-		this.codArt = codArt;
+	public void setCodProd(String codProd) {
+		this.codProd = codProd;
 	}
 
 	public String getNomeProdotto() {
@@ -105,9 +96,17 @@ public class Prodotto {
 		this.prezzo = prezzo;
 	}
 
+	public String getImmagine() {
+		return immagine;
+	}
+
+	public void setImmagine(String immagine) {
+		this.immagine = immagine;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(categoria, codArt, descrizione, id, nomeProdotto, prezzo, provenienza);
+		return Objects.hash(categoria, codProd, descrizione, id, immagine, nomeProdotto, prezzo, provenienza);
 	}
 
 	@Override
@@ -119,17 +118,21 @@ public class Prodotto {
 		if (getClass() != obj.getClass())
 			return false;
 		Prodotto other = (Prodotto) obj;
-		return Objects.equals(categoria, other.categoria) && Objects.equals(codArt, other.codArt)
+		return Objects.equals(categoria, other.categoria) && Objects.equals(codProd, other.codProd)
 				&& Objects.equals(descrizione, other.descrizione) && id == other.id
-				&& Objects.equals(nomeProdotto, other.nomeProdotto)
+				&& Objects.equals(immagine, other.immagine) && Objects.equals(nomeProdotto, other.nomeProdotto)
 				&& Double.doubleToLongBits(prezzo) == Double.doubleToLongBits(other.prezzo)
 				&& Objects.equals(provenienza, other.provenienza);
 	}
 
 	@Override
 	public String toString() {
-		return "ID: " + id + "\n Codice articolo: " + codArt + "\nNome prodotto: " + nomeProdotto + "\nCategoria: "
-				+ categoria + "\nDescrizione: " + descrizione + "\nProvenienza: " + provenienza + "\nPrezzo: " + prezzo;
-	}
-
+		return "Prodotto [id=" + id + ", codProd=" + codProd + ", nomeProdotto=" + nomeProdotto + ", categoria="
+				+ categoria + ", descrizione=" + descrizione + ", provenienza=" + provenienza + ", prezzo=" + prezzo
+				+ ", immagine=" + immagine + "]";
+	}				
+	
 }
+
+	
+	

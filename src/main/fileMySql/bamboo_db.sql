@@ -35,7 +35,7 @@ password varchar(255) unique not null
 );
 
 INSERT INTO Prodotto (codProd, nomeProdotto, categoria, descrizione, provenienza, prezzo, immagine) VALUES
-('FRU001', 'Mirtilli', 'Frutta', 'Mirtilli freschi e succosi', 'Italia', 5.50, '/immagini/prodotti/frutta/mirtilli.jpg'),
+('FRU001', 'Mirtilli', 'Frutta', 'Mirtilli freschi e succosi', 'Italia', 5.50, '/immages/prodotti/frutta/mirtilli.jpg'),
 ('FRU002', 'Banane', 'Frutta', 'Banane dolci e mature', 'Ecuador', 2.60, '/immagini/prodotti/frutta/banane.jpg'),
 ('FRU003', 'Arance', 'Frutta', 'Arance succose e ricche di vitamina C', 'Spagna', 3.20, '/immagini/prodotti/frutta/arance.jpg'),
 ('FRU004', 'Pere Conference', 'Frutta', 'Pere dolci e croccanti', 'Italia', 3.80, '/immagini/prodotti/frutta/pereconference.jpg'),
