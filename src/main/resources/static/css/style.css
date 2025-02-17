@@ -1,154 +1,173 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+
 /*/////////////////NAVBAR///////////////////////////////////////////////*/
 
-.navbar {
+.custom-navbar {
+    background-color: #5f4822;
     height: 4em;
-    background-color: #5f4822; /* Colore di sfondo della navbar */
-    position: relative;
-}
-
-.navbar-toggler {
-    border: none; /* Rimuove il bordo predefinito del pulsante */
-    background-color: transparent; /* Rende il pulsante trasparente */
     padding: 0;
 }
 
-.navbar-toggler .bi {
-    color: #e5dbab; /* Colore dell'icona */
+.navbar-left, .navbar-left a {
+    color:  #e5dbab; 
+    text-decoration: none; 
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease;
+    margin: 0 0.3em;
 }
 
-.navbar-brand {
-    height: 55px; /* Altezza del logo */
-    width: auto;  /* Mantiene le proporzioni corrette */
-}
-
-.navbar-nav {
-    margin-left: 7px;
-}
-
-.nav-item + .nav-item {
-    margin-left: 0px; /* Riduci la distanza */
-    padding: 0;
+.navbar-left a:hover, .navbar-left a:focus{
+    color: #000000; 
+    transform: scale(1.1);
 }
 
 .logo-navbar {
-    max-height: 100%; /* Imposta l'altezza massima del logo */
-    width: auto;  /* Mantiene le proporzioni corrette */
+    height: 3.3em;
+    transition: transform 0.2s ease;
 }
 
-.nav-link {
-    color: #e5dbab; /* Colore delle scritte */
-    padding: 0;
-    font-size: 0.95rem; /* Dimensione font */
+.logo-navbar:hover {
+    transform: scale(1.15) rotate(-5deg); 
 }
 
-.nav-item.separator {
-    display: flex;
-    align-items: center;
-    padding: 0; /* Aggiungi spazio attorno alla barra */
+.navbar-right .bi-person {
     color: #e5dbab;
-}
-
-@media (min-width: 992px) {
-    .navbar .custom-search-container {
-        flex-grow: 1;
-        display: flex;
-        justify-content: center; /* Centra il contenitore */
-    }
-    .navbar .custom-search-form {
-        width: 300px; /* Imposta la larghezza della barra di ricerca */
-        display: flex;
-        position: relative;
-    }
-    .navbar .form-control {
-        flex-grow: 1;
-        padding-right: 60px; /* Aumenta in base alla larghezza di "ctrl K" */
-    }
-    .navbar .input-group-text {
-        position: absolute;
-        right: 10px; /* Regola questa distanza in base alla larghezza della barra di ricerca */
-        top: 50%;
-        transform: translateY(-50%);
-        background: transparent; /* Assicura che lo sfondo sia trasparente */
-        border: none; /* Rimuovi i bordi */
-        color: #6c757d; /* Colore del testo */
-        padding: 0 5px; /* Aggiungi un po' di padding per margine */
-    }
-}
-
-.custom-search-container {
-    display: flex;
-    justify-content: center; /* Centra il contenitore */
-    width: 100%; /* Occupa tutta la larghezza disponibile */
-    max-width: 300px; /* Larghezza massima della barra di ricerca */
-    position: relative;
-}
-
-.custom-search-form {
-    display: flex;
-    align-items: center;
-    position: relative; /* Necessario per il posizionamento assoluto */
-    width: 100%;
-}
-
-.custom-search-form .form-control {
-    flex-grow: 1;
-    padding-right: 60px; /* Aumenta in base alla larghezza di "ctrl K" */
-}
-
-.custom-search-form .input-group-text {
-    position: absolute;
-    right: 10px; /* Regola questa distanza in base alla larghezza della barra di ricerca */
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent; /* Assicura che lo sfondo sia trasparente */
-    border: none; /* Rimuovi i bordi */
-    color: #6c757d; /* Colore del testo */
-    padding: 0 5px; /* Aggiungi un po' di padding per margine */
-}
-
-
-
-/* Contenitore del form di ricerca 
-.custom-search-container {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;  Centra il contenitore 
-    position: relative;
-}
-
- Campo di input di ricerca 
-.custom-search-form {
-    display: flex;
-    align-items: center;
-    position: relative;  Necessario per il posizionamento assoluto 
-    width: 300px;  Imposta la larghezza desiderata 
-    margin: 0 auto;  Centra la barra di ricerca orizzontalmente 
-}
-
-
-
- Span "ctrl K" 
-.custom-search-form .input-group-text {
-    position: absolute;
-    right: 10px; /* Regola questa distanza in base alla larghezza della barra di ricerca 
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent; /* Assicura che lo sfondo sia trasparente 
-    border: none; /* Rimuovi i bordi 
-    color: #6c757d; /* Colore del testo 
-    padding: 0 5px; /* Aggiungi un po' di padding per margine 
-} */
-
-.nav-link .bi {
-    font-size: 1.2em;
-    color: #e5dbab;
-    border: solid #e5dbab 2px;
-    border-radius: 50%; /* Questo renderà l'icona un cerchio perfetto */
-    width: 1.3em; /* Imposta la larghezza dell'icona */
-    height: 1.3em; /* Imposta l'altezza dell'icona */
-    display: flex;
-    align-items: center;
+    border: 2px solid #e5dbab;
+    border-radius: 50%; 
+    font-size: 1.3em; 
+    width: 1.3em; 
+    height: 1.3em; 
     justify-content: center;
-    min-width: 1.4em; /* Mantiene la dimensione minima */
-    min-height: 1.4em; /* Mantiene la dimensione minima */
+    align-items: center; 
+    display: flex;
+    transition: transform 0.2s ease, color 0.5s ease, border-color 0.5s ease;;
+    margin-right: 0.5em;
 }
+
+.navbar-right .bi-person:hover {
+    transform: scale(1.3);
+    color: #000000;
+    border-color: #000000;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28229, 219, 171, 0.85%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");    width: 1.2em;
+    height: 1.2em;
+    border: none;
+    outline: none;
+}
+
+/*/////////////////NAVBAR///////////////////////////////////////////////*/
+
+
+/*/////////////////MENU A TENDINA///////////////////////////////////////////////*/
+
+.side-menu {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    background-color: #5f4822; 
+    overflow-x: hidden; 
+    transition: 0.5s; 
+    padding-top: 60px; 
+}
+
+.side-menu a {
+    padding: 8px 8px 8px 32px; 
+    text-decoration: none; 
+    font-size: 25px; 
+    color: #e5dbab; 
+    display: block; 
+    transition: 0.3s; 
+}
+
+.side-menu a:hover {
+    color: #000000; 
+}
+
+.side-menu .closebtn {
+    position: absolute; 
+    top: 0; 
+    right: 25px; 
+    font-size: 36px; 
+    margin-left: 50px; 
+    color: #e5dbab; 
+}
+
+/*/////////////////MENU A TENDINA///////////////////////////////////////////////*/
+
+
+/*/////////////////FOOTER///////////////////////////////////////////////*/
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #5f4822; 
+    color: white; 
+    font-size: 16px;
+    width: 100%;
+
+}
+
+footer .container-text p {
+    margin: 10px 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
+footer a:hover {
+    color: black; 
+    text-decoration: underline;
+}
+
+.container-social {
+	padding: 0;
+	margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+    height: 40px;
+}
+
+.social-icon {
+	margin: 0;
+	color: white;
+    font-size: 20px;
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+	color: black;
+	transform: scale(1.3);
+	
+}
+
+/*/////////////////FOOTER///////////////////////////////////////////////*/
