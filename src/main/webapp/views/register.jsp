@@ -4,7 +4,8 @@
 <html>
 <body>
     <h2>Registrati</h2>
-    <form action="register" method="post">
+    <form action="/register" method="post">
+    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br><br>
         <label for="password">Password:</label>

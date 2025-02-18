@@ -4,6 +4,7 @@ USE bamboo_db;
 SET SESSION sql_mode = 'STRICT_ALL_TABLES';
 SET default_storage_engine = INNODB;
 
+<<<<<<< HEAD
 CREATE TABLE Prodotto (
     id INT AUTO_INCREMENT PRIMARY KEY,
     codProd VARCHAR(255) UNIQUE NOT NULL,
@@ -13,6 +14,17 @@ CREATE TABLE Prodotto (
     provenienza VARCHAR(255) NOT NULL,
     prezzo DECIMAL(5,2) NOT NULL,
     immagine VARCHAR(255) NOT NULL
+=======
+CREATE TABLE Prodotto(
+id INT AUTO_INCREMENT PRIMARY KEY,
+codProd VARCHAR(255) UNIQUE NOT NULL,
+nomeProdotto VARCHAR(255) UNIQUE NOT NULL,
+categoria VARCHAR(255) NOT NULL,
+descrizione VARCHAR(255) NOT NULL,
+provenienza VARCHAR(255) NOT NULL,
+prezzo DECIMAL(5,2) NOT NULL,
+immagine VARCHAR(255) NOT NULL
+>>>>>>> origin/emanuele
 );
 
 CREATE TABLE ValoreNutrizionale(

@@ -11,9 +11,10 @@ import com.example.demo.model.Prodotto;
 
 @Repository
 public interface ProdottoRepository extends CrudRepository <Prodotto, Integer> { 
-//	<Prodotto, Integer> il primo è un riferimento nome tabella - classe,
+//    <Prodotto, Integer> il primo è un riferimento nome tabella - classe,
 //  il secondo è riferito a che tipo di dato è la primary key della tabella interpellata
 	
+
     @Query("SELECT * FROM prodotto")
     List<Prodotto> findAllProdotti();
 
@@ -23,6 +24,6 @@ public interface ProdottoRepository extends CrudRepository <Prodotto, Integer> {
 
     // Filtra per categoria e prezzo massimo
     @Query("SELECT * FROM prodotto WHERE categoria = :categoria AND prezzo <= :prezzoMax")
-    List<Prodotto> findByCategoriaAndPrezzo(String categoria, double prezzoMax);	
+    List<Prodotto> findByCategoriaAndPrezzo(String categoria, double prezzoMax);
 
 }

@@ -16,19 +16,17 @@ import com.example.demo.repo.ProdottoRepository;
 //(es dalla jsp inserisciProdotto.jsp chiameremo localhost.../E-CommerceBiologico/prodotto
 
 public class ProdottoController {
-	
-	@Autowired
-	private ProdottoRepository prodottoRepository; // definiamo un'interfaccia privata ProdottoRepository con cui richiamiamo i metodi CRUD
 
-	@GetMapping("/prodotti")
-	public List<Prodotto> getProdotti() {
-	    return prodottoRepository.findAllProdotti(); // Usa il metodo corretto dal Repository
-	}
-	 
-	 @GetMapping("/prodotti/categoria")
-	    public List<Prodotto> getProdottiByCategoria(@RequestParam String categoria) {
-	        return prodottoRepository.findByCategoria(categoria);
-	    }
+    @Autowired
+    private ProdottoRepository prodottoRepository; // definiamo un'interfaccia privata ProdottoRepository con cui richiamiamo i metodi CRUD
 
-	
+    @GetMapping("/prodotti")
+    public List<Prodotto> getProdotti() {
+        return prodottoRepository.findAllProdotti(); // Usa il metodo corretto dal Repository
+    }
+
+     @GetMapping("/prodotti/categoria")
+        public List<Prodotto> getProdottiByCategoria(@RequestParam String categoria) {
+            return prodottoRepository.findByCategoria(categoria);
+        }
 }
