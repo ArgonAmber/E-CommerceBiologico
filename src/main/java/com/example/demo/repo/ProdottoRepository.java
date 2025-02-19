@@ -14,7 +14,6 @@ public interface ProdottoRepository extends CrudRepository <Prodotto, Integer> {
 //    <Prodotto, Integer> il primo è un riferimento nome tabella - classe,
 //  il secondo è riferito a che tipo di dato è la primary key della tabella interpellata
 	
-	
     @Query("SELECT * FROM prodotto")
     List<Prodotto> findAllProdotti();
 

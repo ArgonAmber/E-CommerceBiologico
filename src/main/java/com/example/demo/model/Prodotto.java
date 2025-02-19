@@ -8,9 +8,8 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Table("prodotto")
 public class Prodotto {
-
-	@Id // annotazione spring che collega l'attributo id della classe all'id della
-		// tabella su MySQL
+	
+	@Id // annotazione spring che collega l'attributo id della classe all'id della tabella su MySQL
 	private int id;
 
     @Column("codProd") 
@@ -33,6 +32,7 @@ public class Prodotto {
     
     @Column("immagine")
     private String immagine;
+
 
 	public Prodotto() {
 		super();
@@ -62,7 +62,6 @@ public class Prodotto {
 		this.prezzo = prezzo;
 	}
 
-
 	public int getId() {
 		return id;
 	}
@@ -78,7 +77,6 @@ public class Prodotto {
 	public void setCodProd(String codProd) {
 		this.codProd = codProd;
 	}
-
 
 	public String getNomeProdotto() {
 		return nomeProdotto;
@@ -131,7 +129,6 @@ public class Prodotto {
 	@Override
 	public int hashCode() {
 	return Objects.hash(categoria, codProd, descrizione, id, immagine, nomeProdotto, prezzo, provenienza);
-
 	}
 
 	@Override
@@ -145,7 +142,7 @@ public class Prodotto {
 		Prodotto other = (Prodotto) obj;
 		return Objects.equals(categoria, other.categoria) && Objects.equals(codProd, other.codProd)
 				&& Objects.equals(descrizione, other.descrizione) && id == other.id
-				&& Objects.equals(immagine, other.immagine) && Objects.equals(nomeProdotto, other.nomeProdotto)
+				&& Objects.equals(nomeProdotto, other.nomeProdotto)
 				&& Double.doubleToLongBits(prezzo) == Double.doubleToLongBits(other.prezzo)
 				&& Objects.equals(provenienza, other.provenienza);
 	}
