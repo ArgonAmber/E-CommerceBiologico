@@ -11,4 +11,5 @@ public interface AccountRepository extends CrudRepository <Account, Integer> {
 //  il secondo è riferito a che tipo di dato è la primary key della tabella interpellata
 
 	Account findByUsername(String username);
+	Account findByEmail(String email);
 }

@@ -1,13 +1,19 @@
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("sideMenu").addEventListener("click", function () {
-        document.getElementById("sideMenu").style.width = "250px";
-    });
+var menu = "close";
+function MenuMobile() {
+    var sideMenu = document.getElementById("sideMenu");
+    var heroContent = document.querySelector('.hero-content');
+    if (menu == "close") {
+        sideMenu.style.width = "100%";
+        heroContent.style.display = "none";
+        menu = "open";
+    } else {
+        sideMenu.style.width = "0";
+		heroContent.style.display = "block";
+        menu = "close";
+    }
+}
 
-    document.getElementById("closeMenuButton").addEventListener("click", function () {
-        document.getElementById("sideMenu").style.width = "0";
-    });
-});
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 

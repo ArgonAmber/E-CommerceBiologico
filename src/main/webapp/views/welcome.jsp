@@ -51,9 +51,9 @@
     </nav>
 
 
-    <h2>Welcome</h2>
+   <!--  <h2>Welcome</h2>
      <form action="/login" method="post">
-        <!-- PER IL TOKEN CSRF -->
+        PER IL TOKEN CSRF
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br><br>
@@ -63,7 +63,47 @@
     </form>
     <p>${message}</p>
     
-    <h2>Non hai un account?<a href="/preReg">Iscriviti</a></h2>
+    <h2>Non hai un account?<a href="/preReg">Iscriviti</a></h2>  -->
+    
+    <div class="container">
+  <div class="left">
+    <!-- Primo form per gli utenti normali -->
+    <div class="header">
+      <h2 class="animation a1">Benvenuto</h2>
+      <h4 class="animation a2">Inserisci le tue credenziali</h4>
+    </div>
+    <div class="form">
+      <input type="email" class="form-field animation a3" placeholder="Email Address">
+      <input type="password" class="form-field animation a4" placeholder="Password">
+      <p class="animation a5">
+        <a href="#">Password dimenticata?</a>
+      </p>
+      <button class="animation a6">ACCEDI</button>
+      <h2 class="animation a7">Non hai un account? <a href="/preReg">Iscriviti</a></h2>
+    </div>
+
+    <!-- Secondo form per i dipendenti -->
+    <div class="header">
+      <h2 class="animation a1"><br><br><br>Accesso Dipendente</h2>
+      <h4 class="animation a2">Inserisci le credenziali aziendali</h4>
+    </div>
+    <div class="form">
+      <input type="email" class="form-field animation a3" placeholder="Email Dipendente">
+      <input type="password" class="form-field animation a4" placeholder="Password Dipendente">
+      <p class="animation a5">
+        <a href="#">Password dimenticata?</a>
+      </p>
+      <button class="animation a6">ACCEDI</button>
+
+    </div>
+  </div>
+
+  <div class="right"></div>
+</div>
+
+
+
+
     
 </body>
 </html>

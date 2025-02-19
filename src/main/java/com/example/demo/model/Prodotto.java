@@ -30,7 +30,7 @@ public class Prodotto {
 
     @Column("prezzo")
     private double prezzo;
-
+    
     @Column("immagine")
     private String immagine;
 

@@ -14,4 +14,6 @@ public class WelcomeController {
     	m.addAttribute("account", new Account());
         return "welcome";
     }
+    
+    
 }
