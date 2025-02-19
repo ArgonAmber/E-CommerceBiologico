@@ -114,11 +114,43 @@
             </div>
     </footer>
     </div>
+    
+    <!-- SCHEDA PRODOTTO in sovrimpressione -->
+<div id="productOverlay" class="product-overlay">
+    <div class="overlay-content">
+        <span class="close-overlay">&times;</span>
+        <img id="overlayImage" src="" alt="Immagine prodotto">
+        <h2 id="overlayTitle"></h2>
+        <p id="overlayDescription"></p>
+        <p><strong>Provenienza:</strong> <span id="overlayOrigin"></span></p>
+        <p><strong>Prezzo:</strong> <span id="overlayPrice"></span>€</p>
+        <button class="btn btn-success" id="addToCart">Aggiungi al carrello</button>
+    </div>
+</div>
 
+<!-- Icona del carrello flottante -->
+<div id="floatingCart" class="floating-cart">
+    <i class="bi bi-cart3"></i>
+    <span id="cartCounter" class="cart-badge">0</span>
+</div>
 
+<!-- Pannello laterale del carrello -->
+<div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h4>Il tuo carrello</h4>
+        <span class="close-cart">&times;</span>
+    </div>
+    <div class="cart-content">
+        <p id="emptyCartMessage">Il carrello è vuoto.</p>
+        <ul id="cartItemsList"></ul>
+    </div>
+    <div class="cart-footer">
+        <strong>Totale: <span id="cartTotal">0.00</span>€</strong>
+        <button class="btn btn-success w-100">Vai al checkout</button>
+    </div>
+</div>
 
-
-
+    
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

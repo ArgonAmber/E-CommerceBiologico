@@ -4,17 +4,7 @@ USE bamboo_db;
 SET SESSION sql_mode = 'STRICT_ALL_TABLES';
 SET default_storage_engine = INNODB;
 
-<<<<<<< HEAD
-CREATE TABLE Prodotto (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    codProd VARCHAR(255) UNIQUE NOT NULL,
-    nomeProdotto VARCHAR(255) UNIQUE NOT NULL,
-    categoria VARCHAR(255) NOT NULL,
-    descrizione VARCHAR(255) NOT NULL,
-    provenienza VARCHAR(255) NOT NULL,
-    prezzo DECIMAL(5,2) NOT NULL,
-    immagine VARCHAR(255) NOT NULL
-=======
+
 CREATE TABLE Prodotto(
 id INT AUTO_INCREMENT PRIMARY KEY,
 codProd VARCHAR(255) UNIQUE NOT NULL,
@@ -24,7 +14,6 @@ descrizione VARCHAR(255) NOT NULL,
 provenienza VARCHAR(255) NOT NULL,
 prezzo DECIMAL(5,2) NOT NULL,
 immagine VARCHAR(255) NOT NULL
->>>>>>> origin/emanuele
 );
 
 CREATE TABLE ValoreNutrizionale(
@@ -95,7 +84,24 @@ INSERT INTO Prodotto (codProd, nomeProdotto, categoria, descrizione, provenienza
 
 -- **INSERIMENTO PRODOTTI BEVANDE**
 INSERT INTO Prodotto (codProd, nomeProdotto, categoria, descrizione, provenienza, prezzo, immagine) VALUES
-('BEV001', 'Succo di Mela', 'Bevande', 'Succo di mela naturale al 100%', 'Italia', 2.30, '/images/prodotti/bevande/succoallamela.jpg'),
-('BEV002', 'Latte alla Fragola', 'Bevande', 'Latte con un delicato sapore di fragola', 'Germania', 2.10, '/images/prodotti/bevande/bevandaallafragola.jpg'),
-('BEV003', 'Latte al Cocco', 'Bevande', 'Latte vegetale al cocco', 'Thailandia', 2.50, '/images/prodotti/bevande/lattealcocco.jpg'),
-('BEV004', 'Limonata Siciliana', 'Bevande', 'Limonata preparata con limoni di Sicilia', 'Italia', 2.40, '/images/prodotti/bevande/limonatasiciliana.jpg');
+('BEV001', 'Arancia Siciliana', 'Bevande', 'Arance siciliane dal gusto intenso', 'Italia', 3.80, '/images/prodotti/bevande/aranciasiciliana.jpg'),
+('BEV002', 'Limone Siciliano', 'Bevande', 'Limoni siciliani profumati e succosi', 'Italia', 2.90, '/images/prodotti/bevande/limonesiciliano.jpg'),
+('BEV003', 'Pesca Bianca', 'Bevande', 'Pesche bianche dolci e succose', 'Italia', 4.50, '/images/prodotti/bevande/pescabianca.jpg'),
+('BEV004', 'Succo di Arancia', 'Bevande', 'Succo di arancia naturale senza zuccheri aggiunti', 'Italia', 3.00, '/images/prodotti/bevande/succoarancia.jpg'),
+('BEV005', 'Succo di Arancia Valencia', 'Bevande', 'Succo di arancia Valencia dal sapore intenso', 'Spagna', 3.20, '/images/prodotti/bevande/succoaranciavalencia.jpg'),
+('BEV006', 'Succo di Mela', 'Bevande', 'Succo di mela dolce e naturale', 'Italia', 2.80, '/images/prodotti/bevande/succomela.jpg'),
+('BEV007', 'Succo di Mora', 'Bevande', 'Succo di mora dal sapore intenso', 'Italia', 3.50, '/images/prodotti/bevande/succomora.jpg'),
+('BEV008', 'Succo di Pomodoro', 'Bevande', 'Succo di pomodoro ideale per cocktail e condimenti', 'Italia', 2.90, '/images/prodotti/bevande/succopomodoro.jpg');
+
+----------------------------------------CEREALI----------------------------------------
+INSERT INTO Prodotto (codProd, nomeProdotto, categoria, descrizione, provenienza, prezzo, immagine) VALUES
+('CER001', 'Cereali Porridge', 'Cereali', 'Porridge di avena ideale per colazioni salutari', 'UK', 4.20, '/images/prodotti/cereali/cerealiporridge.jpg'),
+('CER002', 'Cereali Semi', 'Cereali', 'Mix di cereali con semi per un gusto croccante', 'Italia', 3.50, '/images/prodotti/cereali/cerealisemi.jpg'),
+('CER003', 'Cornflakes Senza Glutine', 'Cereali', 'Cornflakes senza glutine croccanti e leggeri', 'USA', 3.80, '/images/prodotti/cereali/cornflakes_glutfree.jpg'),
+('CER004', 'Cornflakes', 'Cereali', 'Cornflakes classici croccanti', 'Italia', 2.90, '/images/prodotti/cereali/cornflakes.jpg'),
+('CER005', 'Fibre Flakes', 'Cereali', 'Fiocchi ricchi di fibre per una colazione equilibrata', 'Francia', 3.70, '/images/prodotti/cereali/fibreflakes.jpg'),
+('CER006', 'Golden Granola', 'Cereali', 'Granola dorata croccante con miele', 'Germania', 4.50, '/images/prodotti/cereali/goldengranola.jpg'),
+('CER007', 'Mesa Sunrise', 'Cereali', 'Cereali biologici senza glutine', 'Canada', 5.00, '/images/prodotti/cereali/mesasunrise.jpg'),
+('CER008', 'Nutty Granola', 'Cereali', 'Granola con mix di frutta secca', 'USA', 4.80, '/images/prodotti/cereali/nuttygranola.jpg'),
+('CER009', 'Stelle Cioccolato', 'Cereali', 'Cereali a forma di stelle con cioccolato', 'Italia', 3.90, '/images/prodotti/cereali/stellecioccolato.jpg'),
+('CER010', 'Ultimate Granola', 'Cereali', 'Granola croccante con mix di frutta e noci', 'USA', 5.20, '/images/prodotti/cereali/ultimategranola.jpg');
