@@ -23,11 +23,12 @@
     
      <div class="container-fluid d-flex justify-content-between align-items-center">
      
-			<button class="navbar-toggler d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler d-md-none" type="button" onclick="MenuMobile()">
                 <span class="navbar-toggler-icon"></span>
-            </button>     
+            </button>
+    
      
-            <div class="navbar-left d-none d-sm-inline">
+            <div class="navbar-left d-none d-md-inline">
                 <a href="#">Prodotti</a> |
                 <a href="#">Eventi</a> |
                 <a href="#">Chi siamo</a>
@@ -51,12 +52,12 @@
   
     <!-- Menù a tendina -->
     <div id="sideMenu" class="side-menu">
-        <a href="#" class="closebtn" id="closeMenuButton">&times;</a>
+        <a onclick="MenuMobile()" class="closebtn" id="closeMenuButton">&times;</a>
         <a href="#">Prodotti</a>
         <a href="#">Eventi</a>
         <a href="#">Chi siamo</a>
     </div>
-    
+
    
     <div class="content">
  

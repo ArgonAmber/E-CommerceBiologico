@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.model.Account;
 import com.example.demo.repo.AccountRepository;
@@ -20,12 +22,6 @@ public class AccountController {
 	@Autowired
     PasswordEncoder passwordEncoder;
 	
-   /* @GetMapping("/preLog")
-    public String preLog(Model model) {
-        model.addAttribute("account", new Account());
-        return "login";
-    }   temporanemente  */ 
-
 	@PostMapping("/login")
 	public String login(@ModelAttribute Account account, Model model) {
 	    Account accountEsistente = ar.findByUsername(account.getUsername());
@@ -53,11 +49,19 @@ public class AccountController {
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute Account account, Model model) {
+    public String register(@ModelAttribute Account account, @RequestParam String confirmPassword, Model model) {
+    
+    	  // Controllo se la password e la conferma corrispondono
+        if (!account.getPassword().equals(confirmPassword)) {
+            model.addAttribute("error", "Le password non coincidono. Riprova.");
+            return "register";
+        }
+    	
         Account accountEsistente = ar.findByUsername(account.getUsername());
+        Account emailEsistente = ar.findByEmail(account.getEmail());
         // controlla che il nome utente non sia già utilizzato
-        if (accountEsistente != null) {
-            model.addAttribute("error", "Il nome utente è già in uso. Scegli un altro nome utente.");
+        if (accountEsistente != null || emailEsistente != null) {
+            model.addAttribute("error", "Il nome utente o l'email sono già in uso. Scegli un altro nome utente.");
             return "register";
         } else {
         	//cripta la password prima di salvarla
@@ -67,10 +71,27 @@ public class AccountController {
         }
     }
     
+
+
+    @PostMapping("/checkUsername")
+    @ResponseBody
+    public boolean checkUsername(@RequestParam String username) {
+        Account accountEsistente = ar.findByUsername(username);
+        return accountEsistente != null;
+    }
+        
+         
     @GetMapping("/areaUtente")
     public String areaUtente() {
         return "areaUtente"; 
     }
+    
+    @GetMapping("/areaDipendente")
+    public String areaDipendente() {
+        return "areaDipendente"; 
+    }
+    
+    
     
 }
 

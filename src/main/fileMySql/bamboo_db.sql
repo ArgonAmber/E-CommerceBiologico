@@ -105,3 +105,4 @@ INSERT INTO Prodotto (codProd, nomeProdotto, categoria, descrizione, provenienza
 ('CER008', 'Nutty Granola', 'Cereali', 'Granola con mix di frutta secca', 'USA', 4.80, '/images/prodotti/cereali/nuttygranola.jpg'),
 ('CER009', 'Stelle Cioccolato', 'Cereali', 'Cereali a forma di stelle con cioccolato', 'Italia', 3.90, '/images/prodotti/cereali/stellecioccolato.jpg'),
 ('CER010', 'Ultimate Granola', 'Cereali', 'Granola croccante con mix di frutta e noci', 'USA', 5.20, '/images/prodotti/cereali/ultimategranola.jpg');
+

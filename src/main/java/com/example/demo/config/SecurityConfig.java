@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
@@ -26,16 +25,19 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                .requestMatchers("/", "/home", "/welcome", "/login", "/preReg", "/register", "/css/**", "/images/**", "/static/images/**","/static/js/**", "/js/**", "/views/**", "/prodotto/prodotti/categoria").permitAll()
-                .anyRequest().authenticated()
-            )
-            .formLogin(formLogin -> formLogin
-                .loginPage("/welcome").permitAll()
-                .loginProcessingUrl("/login") // Specifica l'URL di elaborazione del login
-                .defaultSuccessUrl("/areaUtente", true)
-            )
-            .logout(logout -> logout.permitAll());
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(authorizeRequests -> authorizeRequests
+                                .requestMatchers("/areaUtente/**", "/areaDipendente/**").authenticated() // Specifica solo le pagine che richiedono autenticazione
+                                .requestMatchers("/prodotto/update", "/prodotto/insert", "/prodotto/delete").authenticated()
+                                .requestMatchers("/prodotto/prodotti").permitAll() // Permetti tutte le richieste all'endpoint /prodotto/update
+                                .anyRequest().permitAll() // Tutte le altre richieste sono permesse senza autenticazione
+                )
+                .formLogin(formLogin -> formLogin
+                                .loginPage("/welcome").permitAll()
+                                .loginProcessingUrl("/login") // Specifica l'URL di elaborazione del login
+                                .defaultSuccessUrl("/areaUtente", true)
+                )
+                .logout(logout -> logout.permitAll());
         
         return http.build();
     }
@@ -45,5 +47,3 @@ public class SecurityConfig {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 }
-
-
