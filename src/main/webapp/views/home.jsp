@@ -144,7 +144,8 @@
         <span class="close-cart">&times;</span>
     </div>
     <div class="cart-content">
-        <p id="emptyCartMessage">Il carrello è vuoto.</p>
+        <p id="emptyCartMessage" style="display: none;">Il carrello è vuoto.</p>
+
         <ul id="cartItemsList"></ul>
     </div>
     <div class="cart-footer">

@@ -28,4 +28,11 @@ public class CarrelloItem {
     public void incrementaQuantita() {
         this.quantita++;
     }
+    
+    public void decrementaQuantita() {
+        if (this.quantita > 0) {
+            this.quantita--;
+        }
+    }
+    
 }

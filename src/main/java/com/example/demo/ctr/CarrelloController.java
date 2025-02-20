@@ -72,4 +72,41 @@ public class CarrelloController {
     public void svuotaCarrello(HttpSession session) {
         session.removeAttribute("carrello");
     }
+    
+ // Incrementa la quantità di un prodotto nel carrello
+    @PostMapping("/aumenta")
+    public ResponseEntity<String> incrementaQuantita(@RequestParam int idProdotto, HttpSession session) {
+        List<CarrelloItem> carrello = (List<CarrelloItem>) session.getAttribute("carrello");
+        if (carrello != null) {
+            for (CarrelloItem item : carrello) {
+                if (item.getProdotto().getId() == idProdotto) {
+                    item.incrementaQuantita();
+                    session.setAttribute("carrello", carrello);
+                    return ResponseEntity.ok("Quantità aumentata");
+                }
+            }
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prodotto non trovato nel carrello");
+    }
+
+    // Decrementa la quantità di un prodotto nel carrello (se arriva a 0, lo rimuove)
+    @PostMapping("/diminuisci")
+    public ResponseEntity<String> decrementaQuantita(@RequestParam int idProdotto, HttpSession session) {
+        List<CarrelloItem> carrello = (List<CarrelloItem>) session.getAttribute("carrello");
+        if (carrello != null) {
+            for (CarrelloItem item : carrello) {
+                if (item.getProdotto().getId() == idProdotto) {
+                    item.decrementaQuantita();
+                    if (item.getQuantita() <= 0) {
+                        carrello.remove(item);
+                    }
+                    session.setAttribute("carrello", carrello);
+                    return ResponseEntity.ok("Quantità diminuita");
+                }
+            }
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prodotto non trovato nel carrello");
+    }
+
+    
 }
