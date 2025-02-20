@@ -76,7 +76,7 @@
                 <h3>Filtri</h3>
                 <button class="btn btn-success w-100 my-2" onclick="showCategory('frutta')">🍎 Frutta</button>
                 <button class="btn btn-success w-100 my-2" onclick="showCategory('verdura')">🥕 Verdura</button>
-                <button class="btn btn-success w-100 my-2" onclick="showCategory('pasta')">🍝 Pasta & Riso</button>
+                <button class="btn btn-success w-100 my-2" onclick="showCategory('cereali')">🍝 Cereali</button>
                 <button class="btn btn-success w-100 my-2" onclick="showCategory('bevande')">🥤 Bevande</button>
             </div>
 

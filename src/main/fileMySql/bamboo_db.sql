@@ -93,11 +93,11 @@ INSERT INTO Prodotto (codProd, nomeProdotto, categoria, descrizione, provenienza
 ('BEV007', 'Succo di Mora', 'Bevande', 'Succo di mora dal sapore intenso', 'Italia', 3.50, '/images/prodotti/bevande/succomora.jpg'),
 ('BEV008', 'Succo di Pomodoro', 'Bevande', 'Succo di pomodoro ideale per cocktail e condimenti', 'Italia', 2.90, '/images/prodotti/bevande/succopomodoro.jpg');
 
-----------------------------------------CEREALI----------------------------------------
+
 INSERT INTO Prodotto (codProd, nomeProdotto, categoria, descrizione, provenienza, prezzo, immagine) VALUES
 ('CER001', 'Cereali Porridge', 'Cereali', 'Porridge di avena ideale per colazioni salutari', 'UK', 4.20, '/images/prodotti/cereali/cerealiporridge.jpg'),
 ('CER002', 'Cereali Semi', 'Cereali', 'Mix di cereali con semi per un gusto croccante', 'Italia', 3.50, '/images/prodotti/cereali/cerealisemi.jpg'),
-('CER003', 'Cornflakes Senza Glutine', 'Cereali', 'Cornflakes senza glutine croccanti e leggeri', 'USA', 3.80, '/images/prodotti/cereali/cornflakes_glutfree.jpg'),
+('CER003', 'Cornflakes Senza Glutine', 'Cereali', 'Cornflakes senza glutine croccanti e leggeri', 'USA', 3.80, '/images/prodotti/cereali/cornflakesglutfree.jpg'),
 ('CER004', 'Cornflakes', 'Cereali', 'Cornflakes classici croccanti', 'Italia', 2.90, '/images/prodotti/cereali/cornflakes.jpg'),
 ('CER005', 'Fibre Flakes', 'Cereali', 'Fiocchi ricchi di fibre per una colazione equilibrata', 'Francia', 3.70, '/images/prodotti/cereali/fibreflakes.jpg'),
 ('CER006', 'Golden Granola', 'Cereali', 'Granola dorata croccante con miele', 'Germania', 4.50, '/images/prodotti/cereali/goldengranola.jpg'),
