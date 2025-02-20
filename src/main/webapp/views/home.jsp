@@ -116,7 +116,7 @@
     </footer>
     </div>
     
-    <!-- SCHEDA PRODOTTO in sovrimpressione -->
+<!-- SCHEDA PRODOTTO in sovrimpressione -->
 <div id="productOverlay" class="product-overlay">
     <div class="overlay-content">
         <span class="close-overlay">&times;</span>
@@ -128,6 +128,8 @@
         <button class="btn btn-success" id="addToCart">Aggiungi al carrello</button>
     </div>
 </div>
+
+
 
 <!-- Icona del carrello flottante -->
 <div id="floatingCart" class="floating-cart">
