@@ -358,3 +358,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	        }, 500);
 	    }, 700); // L'immagine ha più tempo per scomparire
 	}
+	
+	
+
