@@ -1,3 +1,29 @@
+
+
+var menu = "close";
+function MenuMobile() {
+    var sideMenu = document.getElementById("sideMenu");
+    var heroContent = document.querySelector('.hero-content');
+    if (menu == "close") {
+        sideMenu.style.width = "100%";
+        heroContent.style.display = "none";
+        menu = "open";
+    } else {
+        sideMenu.style.width = "0";
+		heroContent.style.display = "block";
+        menu = "close";
+    }
+}
+
+// chiude il menu dopo il click su un link
+document.querySelectorAll("#sideMenu a").forEach(link => {
+    link.addEventListener("click", function() {
+        document.getElementById("sideMenu").style.width = "0";
+    });
+});
+
+////////////////////REGISTRAZIONE////////////////////////////////////////////////
+
 function validatePassword() {
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
@@ -35,5 +61,13 @@ function checkUsername() {
 }
 
 function validateForm() {
-    return validatePassword() && !document.getElementById("errorMessageUsername").style.display === "block";
+    console.log("Validating form...");
+    var passwordValid = validatePassword();
+    var usernameValid = document.getElementById("errorMessageUsername").style.display === "none";
+
+    console.log("Password valid: " + passwordValid);
+    console.log("Username valid: " + usernameValid);
+
+    return passwordValid && usernameValid;
 }
+

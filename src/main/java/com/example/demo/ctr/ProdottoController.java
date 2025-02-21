@@ -92,6 +92,7 @@ public class ProdottoController {
      
      @PostMapping("/delete")
      public ResponseEntity<String> deleteProdotto(@RequestBody Prodotto prodotto) {
+    	 System.out.println("🗑️ Tentativo di eliminazione del prodotto con ID: " + prodotto.getId());
          if (prodottoRepository.existsById(prodotto.getId())) {
              Prodotto prodottoDaEliminare = prodottoRepository.findById(prodotto.getId()).orElse(null);
              

@@ -15,41 +15,14 @@ function MenuMobile() {
     }
 }
 
-
-// Funzione per mostrare la categoria selezionata
-/*function showCategory(category) {
-	let catalogo = document.getElementById("catalogo");
-	catalogo.innerHTML = ""; // Puliamo il catalogo prima di inserire i nuovi prodotti
-
-	if (products[category]) {
-		products[category].forEach(product => {
-			let productHTML = `
-			<div class="col-md-3">
-			    <div class="product-card">
-			        <a href="${product}" class="text-decoration-none">
-			            <img src="${product.img}" alt="${product.name}">
-			            <h5>${product.name}</h5>
-			            <p>${product.price}</p>
-			        </a>
-			    </div>
-			</div>
-            `;
-			catalogo.innerHTML += productHTML;
-		});
-	}
-}*/
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Gestione del menu a tendina
-    document.getElementById("sideMenu").addEventListener("click", function () {
-        document.getElementById("sideMenu").style.width = "250px";
-    });
-
-    document.getElementById("closeMenuButton").addEventListener("click", function () {
+// chiude il menu dopo il click su un link
+document.querySelectorAll("#sideMenu a").forEach(link => {
+    link.addEventListener("click", function() {
         document.getElementById("sideMenu").style.width = "0";
     });
 });
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //                               GESTIONE CATALOGO PRODOTTI                                    //

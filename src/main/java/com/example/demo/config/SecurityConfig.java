@@ -13,7 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
+	
+	@Autowired
+    private CustomAuthenticationSuccessHandler successHandler;
+	
     private final UserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
 
@@ -24,18 +27,23 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    	
+    	 System.out.println("Security Config loaded");
+    	
         http
+        
+        		
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                                 .requestMatchers("/areaUtente/**", "/areaDipendente/**").authenticated() // Specifica solo le pagine che richiedono autenticazione
                                 .requestMatchers("/prodotto/update", "/prodotto/insert", "/prodotto/delete").authenticated()
-                                .requestMatchers("/prodotto/prodotti").permitAll() // Permetti tutte le richieste all'endpoint /prodotto/update
+                                .requestMatchers("/prodotto/prodotti", "/preReg", "/register").permitAll() // Permetti tutte le richieste all'endpoint /prodotto/update
                                 .anyRequest().permitAll() // Tutte le altre richieste sono permesse senza autenticazione
                 )
                 .formLogin(formLogin -> formLogin
                                 .loginPage("/welcome").permitAll()
                                 .loginProcessingUrl("/login") // Specifica l'URL di elaborazione del login
-                                .defaultSuccessUrl("/areaUtente", true)
+                                .successHandler(successHandler) // usiamo il nostro handler personalizzato visto che non vogliamo implementare authorities per adesso
                 )
                 .logout(logout -> logout.permitAll());
         

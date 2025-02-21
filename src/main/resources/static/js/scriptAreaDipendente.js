@@ -123,7 +123,7 @@ function inviaDati(productData) {
 
 ///////////////INSERISCI PRODOTTO//////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////VISUALIZZA PRODOTTI///////////////////////////////////////////////////////////////
 
 
 function showProducts() {
@@ -202,25 +202,71 @@ function updateProduct(productId) {
 }
 
 function removeProduct(productId) {
+    console.log("🗑️ Sto tentando di eliminare il prodotto con ID:", productId);
+
+    fetch('/prodotto/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: productId })
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('✅ Prodotto rimosso con successo dal database!');
+            document.getElementById('product-' + productId).remove();
+        } else {
+            console.error('❌ Errore durante la rimozione del prodotto dal database.');
+        }
+    })
+    .catch(error => console.error('❌ Errore:', error));
+}
+
+
+
+///////////////VISUALIZZA PRODOTTI///////////////////////////////////////////////////////////////
+
+///////////////VISUALIZZA ORDINI///////////////////////////////////////////////////////////////
+
+function showOrders() {
+    fetch('/ordine/ordini')
+        .then(response => response.json())
+        .then(orders => {
+            var table = '<table class="table"><thead><tr><th>Codice Ordine</th><th>Username</th><th>Email</th></tr></thead><tbody>';
+            orders.forEach(function(order) {            
+
+                table += '<tr id="order-' + order.id + '">'
+                    + '<td>' + order.codOrdine + '</td>'
+                    + '<td>' + order.username + '</td>'
+                    + '<td>' + order.email + '</td>'                  
+                    + '</tr>'
+					+ '<tr><td colspan="7"><div class="button-group"><button class="btn btn-danger" style="width:100%" onclick="removeOrder(' + order.id + ')">Rimuovi</button></div></td></tr>';
+            });
+            table += '</tbody></table>';
+
+            document.getElementById('productTable').innerHTML = table;
+        })
+        .catch(error => console.error('Errore:', error));
+}
+
+function removeOrder(orderId) {
 	// questa roba qua rimuove solo la riga a livello front
-    var row = document.getElementById('product-' + productId);
+    var row = document.getElementById('order-' + orderId);
     if (row) {
         row.parentNode.removeChild(row);
     }
 
 	// questo fa il lavoraccio invece
-    fetch('/prodotto/delete', {
+    fetch('/ordine/delete', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id: productId }) // Invia solo l'ID del prodotto
+        body: JSON.stringify({ id: orderId }) // Invia solo l'ID del prodotto
     })
     .then(response => {
         if (response.ok) {
-            console.log('Prodotto rimosso con successo dal database!');
+            console.log('Ordine rimosso con successo dal database!');
         } else {
-            console.error('Errore durante la rimozione del prodotto dal database.');
+            console.error('Errore durante la rimozione dell\'ordine dal database.');
         }
     })
     .catch(error => {
@@ -228,4 +274,29 @@ function removeProduct(productId) {
     });
 }
 
+///////////////VISUALIZZA ORDINI///////////////////////////////////////////////////////////////
+
+///////////////VISUALIZZA ACCOUNT///////////////////////////////////////////////////////////////
+
+function showAccounts() {
+    fetch('/account/list')
+        .then(response => response.json())
+        .then(accounts => {
+            var table = '<table class="table"><thead><tr><th>Username</th><th>Email</th></tr></thead><tbody>';
+            accounts.forEach(function(accounts) {            
+
+                table += '<tr id="order-' + accounts.id + '">'
+                    + '<td>' + accounts.username + '</td>'
+                    + '<td>' + accounts.email + '</td>'                  
+                    + '</tr>'
+            });
+            table += '</tbody></table>';
+
+            document.getElementById('productTable').innerHTML = table;
+        })
+        .catch(error => console.error('Errore:', error));
+}
+
+
+///////////////VISUALIZZA ACCOUNT///////////////////////////////////////////////////////////////
 
