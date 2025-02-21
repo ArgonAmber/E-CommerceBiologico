@@ -22,24 +22,12 @@
 </head>
 <body>
 
+<div class="wrapper">
 <!-- Navbar -->
 	<nav class="navbar custom-navbar">
 
 		<div
-			class="container-fluid d-flex justify-content-between align-items-center">
-
-			<button class="navbar-toggler d-sm-none" type="button"
-				data-bs-toggle="collapse"
-				data-bs-target="#navbarToggleExternalContent"
-				aria-controls="navbarToggleExternalContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="navbar-left d-none d-sm-inline">
-				<a href="#">Prodotti</a> | <a href="#">Eventi</a> | <a href="#">Chi
-					siamo</a>
-			</div>
+			class="container-fluid d-flex justify-content-between align-items-center">	
 
 			<div
 				class="navbar-center position-absolute start-50 translate-middle-x">
@@ -48,28 +36,9 @@
 					alt="Bamboo Logo" class="logo-navbar">
 				</a>
 			</div>
-
-			<div class="navbar-right ms-auto">
-				<a class="nav-link" href="/welcome"> <i class="bi bi-person"></i>
-				</a>
-			</div>
-
 		</div>
-
 	</nav>
-	
-	
-    <!--   <h2>Registrati</h2>
-    <form action="/register" method="post">
-    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username"><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Registrati">
-    </form>
-    <p>${message}</p> -->
-    
+	    
     <div class="container">
     <div class="left">
         <div class="header">
@@ -77,22 +46,43 @@
             <h4 class="animation a2">Crea un nuovo account</h4>
         </div>
         <form action="/register" method="post" onsubmit="return validateForm()">
-        <div class="form">
-        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        	<input type="hidden" id="contextPath" value="${pageContext.request.contextPath}" />
-            <input type="text" id="username" name="username" class="form-field animation a3" placeholder="Username" onblur="checkUsername()">
-            <input type="email" id="email" name="email" class="form-field animation a4" placeholder="Email">
-            <input type="password" id="password" name="password" class="form-field animation a5" placeholder="Password">
-            <input type="password" id="confirmPassword" name="confirmPassword" class="form-field animation a6" placeholder="Conferma Password">
-            <div id="errorMessagePassword" class="text-danger" style="display: none;">Le password non coincidono. Riprova.</div>
-            <div id="errorMessageUsername" class="text-danger" style="display: none;">Il nome utente è già in uso. Scegli un altro nome utente.</div>
-            <button class="animation a7">REGISTRATI</button>
-        </div>
+            <div class="form">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}" />
+                <input type="text" id="username" name="username" class="form-field animation a3" placeholder="Username" onblur="checkUsername()">
+                <input type="email" id="email" name="email" class="form-field animation a4" placeholder="Email">
+                <input type="password" id="password" name="password" class="form-field animation a5" placeholder="Password">
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-field animation a6" placeholder="Conferma Password">
+                <div id="errorMessagePassword" class="text-danger" style="display: none;">Le password non coincidono. Riprova.</div>
+                <div id="errorMessageUsername" class="text-danger" style="display: none;">Il nome utente è già in uso. Scegli un altro nome utente.</div>
+                <button class="animation a7">REGISTRATI</button>
+            </div>
         </form>
-    </div>
-    <div class="right"></div>
-</div>
+    </div> 
     
+    <div class="right d-none d-md-block"></div>
+    </div>
+    
+     <!-- Footer -->
+    <footer class="text-center py-3">
+    	<div class="container-text">
+        <p>&copy; 2025 Bamboo - Tutti i diritti riservati.</p>
+        <p>
+            <a href="#">Privacy Policy</a>
+            <a href="#"> Termini di Servizio</a>
+            <a href="#">Contattaci</a>
+        </p>
+        </div>
+            <div class="container-social">
+                <a href="https://www.instagram.com">
+					<i class="bi bi-instagram social-icon"></i>                
+				</a>
+                <a href="https://www.linkedin.com">
+					<i class="bi bi-linkedin social-icon"></i>                
+				</a>
+            </div>
+    </footer>
+    </div>
     
 </body>
 </html>

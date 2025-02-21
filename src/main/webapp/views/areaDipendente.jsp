@@ -48,6 +48,7 @@
         <a href="#" onclick="showProducts()">Visualizza tutti i prodotti</a>
         <a href="#" onclick="showOrders()">Visualizza tutti gli ordini</a>
         <a href="#" onclick="showAccounts()">Visualizza tutti gli account</a>
+        <a href="/welcome">Logout</a>
     </div>
     
 

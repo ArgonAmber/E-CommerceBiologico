@@ -167,6 +167,12 @@ body {
 
 }
 
+@media (min-width: 768px) {
+    .right {
+        display: none;
+        margin-top: 20px;
+    }
+}
 
 .header > h2 {
   margin: 0;

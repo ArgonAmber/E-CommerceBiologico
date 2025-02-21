@@ -23,16 +23,9 @@
     
      <div class="container-fluid d-flex justify-content-between align-items-center">
      
-			<button class="navbar-toggler d-md-none" type="button" onclick="MenuMobile()">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+			
     
      
-            <div class="navbar-left d-none d-md-inline">
-                <a href="#">Prodotti</a> |
-                <a href="#">Eventi</a> |
-                <a href="#">Chi siamo</a>
-            </div>
             
             <div class="navbar-center position-absolute start-50 translate-middle-x">
             	<a class="nav-link" href="/home">
@@ -44,19 +37,12 @@
     
     </nav>
   
-    <!-- Menù a tendina -->
-    <div id="sideMenu" class="side-menu">
-        <a onclick="MenuMobile()" class="closebtn" id="closeMenuButton">&times;</a>
-        <a href="#">Prodotti</a>
-        <a href="#">Eventi</a>
-        <a href="#">Chi siamo</a>
-    </div>
-    
+   
  
    
-    <div class="container">
+  <div class="container d-flex flex-column align-items-center">
     
-  <div class="left">
+  <div class="left d-md-block">
     <!-- Primo form per gli utenti normali -->
     <div class="header">
       <h2 class="animation a1">Benvenuto</h2>
@@ -100,7 +86,7 @@
   </div>
 
 
-  <div class="right"></div>
+  <div class="right d-none d-md-block"></div>
  </div>
     
      <!-- Footer -->

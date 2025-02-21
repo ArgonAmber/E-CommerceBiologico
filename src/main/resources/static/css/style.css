@@ -13,6 +13,8 @@ html, body {
 
 .content {
     flex: 1;
+    margin-left: 95px;
+	margin-right: 95px;
 }
 
 
@@ -128,7 +130,7 @@ html, body {
 
 /* Stile per l'header con immagine di sfondo */
 .hero-section {
-    background: url('/images/BambooCopertinaC.jpg') center/cover no-repeat;
+    background: url('/images/panda eating bamboo 2.webp') center/cover no-repeat;
     height: 500px; /* Modifica questa altezza se vuoi più spazio */
     display: flex;
     align-items: center;
@@ -136,9 +138,9 @@ html, body {
     color: white;
     text-align: center;
     position: relative;
-    border: solid gray 1px;
+    animation: fadeIn 2s ease-in-out; /* Aggiungi animazione di fade-in */
+    filter: grayscale(5%) sepia(5%) contrast(80%);
 }
-
 
 /* Overlay leggero per rendere il testo più leggibile */
 .hero-section::before {
@@ -148,7 +150,8 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); 
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)); /* Gradient overlay */
+    filter: blur(5px); /* Aggiungi un leggero effetto di sfocatura */
 }
 
 /* Stile del testo sopra l'header */
@@ -156,16 +159,26 @@ html, body {
     position: relative;
     z-index: 1; /* Assicura che il testo sia sopra l'overlay */
     text-align: left; /* Allinea il testo a sinistra */
-    width: 80%; /* Mantiene il testo leggibile senza andare sul bordo */
-    margin-left: 5%; /* Distanza dal bordo sinistro */
+    padding: 0 10%; /* Mantiene il testo leggibile senza andare sul bordo */
     margin-top: -200px;
 }
 
 .hero-content h1, .hero-content p {
-    color: #ffffff; /* Bianco puro */
+    color: #ffffff; 
     font-weight: bold; /* Testo più visibile */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); /* Aumenta contrasto per leggibilità */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); /* Aumenta contrasto per leggibilità */
 }
+
+/* Effetto di animazione */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 
 /* CSS DEI PRODOTTI */

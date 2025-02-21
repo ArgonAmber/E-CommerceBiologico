@@ -64,7 +64,7 @@
  
  <!-- Hero Section -->
     <header class="text-center py-5 hero-section">
-        <div class="container hero-content">
+        <div class="container-fluid hero-content">
             <h1 class="display-4">Bamboo - Il tuo e-commerce bio</h1>
             <p class="lead">Prodotti naturali, freschi e sostenibili.</p>
         </div>
