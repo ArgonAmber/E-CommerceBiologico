@@ -22,25 +22,19 @@
 </head>
 <body>
 
-<div class="wrapper">
 <!-- Navbar -->
-	<nav class="navbar custom-navbar">
-
-		<div
-			class="container-fluid d-flex justify-content-between align-items-center">	
-
-			<div
-				class="navbar-center position-absolute start-50 translate-middle-x">
-				<a class="nav-link" href="/home"> <img
-					src="${pageContext.request.contextPath}/images/logoBamboo.png"
-					alt="Bamboo Logo" class="logo-navbar">
-				</a>
-			</div>
-		</div>
-	</nav>
+    <nav class="navbar custom-navbar">  
+     <div class="container-fluid d-flex justify-content-between align-items-center">            
+            <div class="navbar-center position-absolute start-50 translate-middle-x">
+            	<a class="nav-link" href="/home">
+                <img src="${pageContext.request.contextPath}/images/logoBamboo.png" alt="Bamboo Logo" class="logo-navbar">
+                </a>
+            </div>                           
+     </div>
+    </nav>
 	    
     <div class="container">
-    <div class="left">
+    <div class="left d-md-block mx-auto">
         <div class="header">
             <h2 class="animation a1">Registrati</h2>
             <h4 class="animation a2">Crea un nuovo account</h4>
@@ -82,7 +76,7 @@
 				</a>
             </div>
     </footer>
-    </div>
+   
     
 </body>
 </html>

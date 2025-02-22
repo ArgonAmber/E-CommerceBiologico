@@ -19,30 +19,18 @@
 <body>
 
 <!-- Navbar -->
-    <nav class="navbar custom-navbar">
-    
-     <div class="container-fluid d-flex justify-content-between align-items-center">
-     
-			
-    
-     
-            
+    <nav class="navbar custom-navbar">  
+     <div class="container-fluid d-flex justify-content-between align-items-center">            
             <div class="navbar-center position-absolute start-50 translate-middle-x">
             	<a class="nav-link" href="/home">
                 <img src="${pageContext.request.contextPath}/images/logoBamboo.png" alt="Bamboo Logo" class="logo-navbar">
                 </a>
-            </div>                
-            
-        </div>
-    
+            </div>                           
+     </div>
     </nav>
-  
-   
- 
-   
-  <div class="container d-flex flex-column align-items-center">
     
-  <div class="left d-md-block">
+ <div class="container">   
+  <div class="left d-md-block mx-auto">
     <!-- Primo form per gli utenti normali -->
     <div class="header">
       <h2 class="animation a1">Benvenuto</h2>
@@ -87,7 +75,7 @@
 
 
   <div class="right d-none d-md-block"></div>
- </div>
+</div>
     
      <!-- Footer -->
     <footer class="text-center py-3">

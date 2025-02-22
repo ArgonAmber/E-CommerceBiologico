@@ -36,6 +36,8 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                                 .requestMatchers("/areaUtente/**", "/areaDipendente/**").authenticated() // Specifica solo le pagine che richiedono autenticazione
+                                .requestMatchers("/account/list").authenticated()
+                                .requestMatchers("/ordine/ordini", "/ordine/delete").authenticated()
                                 .requestMatchers("/prodotto/update", "/prodotto/insert", "/prodotto/delete").authenticated()
                                 .requestMatchers("/prodotto/prodotti", "/preReg", "/register").permitAll() // Permetti tutte le richieste all'endpoint /prodotto/update
                                 .anyRequest().permitAll() // Tutte le altre richieste sono permesse senza autenticazione
@@ -50,8 +52,4 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
-    }
 }
