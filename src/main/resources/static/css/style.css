@@ -130,16 +130,15 @@ html, body {
 
 /* Stile per l'header con immagine di sfondo */
 .hero-section {
-    background: url('/images/panda eating bamboo 2.webp') center/cover no-repeat;
+    background: url('/images/frutta con spazio per logo.jpg') center/cover no-repeat;
     height: 500px; /* Modifica questa altezza se vuoi più spazio */
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-align: center;
-    position: relative;
-    animation: fadeIn 2s ease-in-out; /* Aggiungi animazione di fade-in */
-    filter: grayscale(5%) sepia(5%) contrast(80%);
+    position: relative;  
+    filter: grayscale(2%) seppia(5%) contrast(80%);
 }
 
 /* Overlay leggero per rendere il testo più leggibile */
@@ -151,7 +150,7 @@ html, body {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)); /* Gradient overlay */
-    filter: blur(5px); /* Aggiungi un leggero effetto di sfocatura */
+    filter: blur(3px); /* Aggiungi un leggero effetto di sfocatura */
 }
 
 /* Stile del testo sopra l'header */
@@ -179,6 +178,16 @@ html, body {
     }
 }
 
+/*//////////////////CAROSELLO/////////////////////////////////*/
+
+
+#multiImageCarousel {
+	margin-top: 50px;
+	margin-bottom: 25px;
+}
+
+
+/*//////////////////CAROSELLO/////////////////////////////////*/
 
 
 /* CSS DEI PRODOTTI */

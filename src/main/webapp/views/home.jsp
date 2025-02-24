@@ -61,16 +61,101 @@
 
    
     <div class="content">
- 
- <!-- Hero Section -->
+  
+    <!-- Hero Section -->
     <header class="text-center py-5 hero-section">
         <div class="container-fluid hero-content">
             <h1 class="display-4">Bamboo - Il tuo e-commerce bio</h1>
             <p class="lead">Prodotti naturali, freschi e sostenibili.</p>
         </div>
     </header>
+    
+    
+    
+            <!-- Carosello -->
+			<div id="multiImageCarousel" class="carousel slide"	data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<!-- Slide 1 -->
+					<div class="carousel-item active">
+						<div class="row">
+							<div class="col-sm-4 col-md-2">
+								<img src="/images/carosello/immaginicarosello1.jpg"
+									class="d-block w-100" alt="Lamponi" data-bs-toggle="modal"
+									data-bs-target="#imageModal"
+									onclick="setModalImage('/images/carosello/immaginicarosello1.jpg')">
+							</div>
+							<div class="col-sm-4 col-md-2">
+								<img src="/images/carosello/immaginicarosello2.jpg"
+									class="d-block w-100" alt="Mela" data-bs-toggle="modal"
+									data-bs-target="#imageModal"
+									onclick="setModalImage('/images/carosello/immaginicarosello2.jpg')">
+							</div>
+							<div class="col-sm-4 col-md-2">
+								<img src="/images/carosello/immaginicarosello3.jpg"
+									class="d-block w-100" alt="Arancia">
+							</div>
+							<div class="col-sm-4 col-md-2 d-none d-md-block">
+								<img src="/images/carosello/immaginicarosello4.jpg"
+									class="d-block w-100" alt="Banana">
+							</div>
+							<div class="col-sm-4 col-md-2 d-none d-md-block">
+								<img src="/images/carosello/immaginicarosello5.jpg"
+									class="d-block w-100" alt="Fragola">
+							</div>
+							<div class="col-sm-4 col-md-2 d-none d-md-block">
+								<img src="/images/carosello/immaginicarosello6.jpg"
+									class="d-block w-100" alt="Uva">
+							</div>
+						</div>
+					</div>
 
-    <!-- Sezione Catalogo con Grid System -->
+					<!-- Slide 2 -->
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-sm-4 col-md-2">
+								<img src="/images/carosello/immaginicarosello7.jpg"
+									class="d-block w-100" alt="Ciliegia">
+							</div>
+							<div class="col-sm-4 col-md-2">
+								<img src="/images/carosello/immaginicarosello8.jpg"
+									class="d-block w-100" alt="Kiwi">
+							</div>
+							<div class="col-sm-4 col-md-2">
+								<img src="/images/carosello/immaginicarosello9.jpg"
+									class="d-block w-100" alt="Ananas">
+							</div>
+							<div class="col-sm-4 col-md-2 d-none d-md-block">
+								<img src="/images/carosello/immaginicarosello1.jpg"
+									class="d-block w-100" alt="Pesca">
+							</div>
+							<div class="col-sm-4 col-md-2 d-none d-md-block">
+								<img src="/images/carosello/immaginicarosello2.jpg"
+									class="d-block w-100" alt="Cocco">
+							</div>
+							<div class="col-sm-4 col-md-2 d-none d-md-block">
+								<img src="/images/carosello/immaginicarosello3.jpg"
+									class="d-block w-100" alt="Mirtilli">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Controlli del Carosello -->
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#multiImageCarousel" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Precedente</span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#multiImageCarousel" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Successivo</span>
+				</button>
+			</div>
+
+			
+
+			<!-- Sezione Catalogo con Grid System -->
     <div class="container py-5">
         <div class="row">
             <!-- Colonna sinistra: Filtri -->
