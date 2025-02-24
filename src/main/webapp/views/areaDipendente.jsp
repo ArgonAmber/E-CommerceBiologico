@@ -36,12 +36,7 @@
                 </a>
             </div>
             
-            <div class="navbar-right ms-auto">
-            	<a class="nav-link" href="/welcome">
-                <i class="bi bi-person"></i>
-                </a>
-            </div>
-            
+                     
         </div>
     
     </nav>
@@ -51,8 +46,9 @@
         <a onclick="MenuMobile()" class="closebtn" id="closeMenuButton">&times;</a>
         <a href="#" onclick="saveProduct()">Inserisci un prodotto</a>
         <a href="#" onclick="showProducts()">Visualizza tutti i prodotti</a>
-        <a href="#">Visualizza tutti gli ordini</a>
-        <a href="#">Visualizza tutti gli acquisti</a>
+        <a href="#" onclick="showOrders()">Visualizza tutti gli ordini</a>
+        <a href="#" onclick="showAccounts()">Visualizza tutti gli account</a>
+        <a href="/welcome">Logout</a>
     </div>
     
 
@@ -62,12 +58,11 @@
  		<div class="left-column d-none d-md-block">
  			<a href="#" onclick="saveProduct()">Inserisci un prodotto</a>
             <a href="#" onclick="showProducts()">Visualizza tutti i prodotti</a>
-            <a href="#">Visualizza tutti gli ordini</a>
-            <a href="#">Visualizza tutti gli acquisti</a>
+            <a href="#" onclick="showOrders()">Visualizza tutti gli ordini</a>
+            <a href="#" onclick="showAccounts()">Visualizza tutti gli account</a>
         </div>
-        <div class="right-column" id="productTable">
-            <!-- Contenuto da aggiungere in futuro -->
-        </div>
+        
+        <div class="right-column" id="productTable"></div>
 
     </div>
  
@@ -82,7 +77,7 @@
         <p>
             <a href="#">Privacy Policy</a>
             <a href="#"> Termini di Servizio</a>
-            <a href="#">Richiedi assistenza</a>
+            <a href="https://images2.corriereobjects.it/Media/Foto/2013/08/07/BABBUINI.jpg?v=20130807083119">Richiedi assistenza</a>
         </p>
         </div>
     </footer>

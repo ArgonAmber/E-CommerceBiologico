@@ -6,12 +6,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.Ordine;
@@ -20,6 +23,7 @@ import com.example.demo.repo.OrdineRepository;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
+
 @RequestMapping("ordine")
 public class OrdineController {
 	
@@ -41,6 +45,7 @@ public class OrdineController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ordine non trovato.");
         }
     }
+
 	
 	@PostMapping("/salva")
 	public ResponseEntity<String> salvaOrdine(@RequestParam String nome, 
@@ -85,7 +90,12 @@ public class OrdineController {
 	    // Passiamo l'ordine alla vista JSP
 	    model.addAttribute("ordine", ordine);
 	    
-	    // Mostra la JSP (che deve essere in WEB-INF/views/)
+	    // SVUOTARE IL CARRELLO DOPO IL PAGAMENTO
+	    session.removeAttribute("carrello");
+
+	    // Mostra la JSP di conferma (che deve essere in WEB-INF/views/)
 	    return "acquistoSuccess";
 	}
 }
+
+

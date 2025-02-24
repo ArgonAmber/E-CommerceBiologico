@@ -11,5 +11,4 @@ public interface OrdineRepository extends CrudRepository <Ordine, Integer>{
 	
 	@Query("SELECT * FROM Ordine")
 	List<Ordine> findAllOrdini();
-
 }

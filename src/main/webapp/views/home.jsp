@@ -24,38 +24,41 @@
 
 	<div class="wrapper">
 		<!-- Navbar -->
-		<nav class="navbar custom-navbar">
+<nav class="navbar custom-navbar">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
 
-			<div
-				class="container-fluid d-flex justify-content-between align-items-center">
+        <button class="navbar-toggler d-md-none" type="button" onclick="MenuMobile()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-				<button class="navbar-toggler d-md-none" type="button"
-					onclick="MenuMobile()">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+        <div class="navbar-left d-none d-md-inline">
+            <a href="#">Prodotti</a> | <a href="#">Eventi</a> | <a href="#">Chi siamo</a>
+        </div>
 
+        <div class="navbar-center position-absolute start-50 translate-middle-x">
+            <a class="nav-link" href="/home">
+                <img src="${pageContext.request.contextPath}/images/logoBamboo.png"
+                    alt="Bamboo Logo" class="logo-navbar">
+            </a>
+        </div>
 
-				<div class="navbar-left d-none d-md-inline">
-					<a href="#">Prodotti</a> | <a href="#">Eventi</a> | <a href="#">Chi
-						siamo</a>
-				</div>
+        <div class="navbar-right ms-auto">
+            <% 
+                String utente = (String) session.getAttribute("utente"); 
+                if (utente != null) { // Se l'utente è loggato, mostra il link all'area utente
+            %>
+                <a class="nav-link" href="/areaUtente">
+                    <i class="bi bi-person"></i>
+                </a>
+            <% } else { // Se l'utente NON è loggato, mostra il link al login %>
+                <a class="nav-link" href="/welcome">
+                    <i class="bi bi-person"></i>
+                </a>
+            <% } %>
+        </div>
 
-				<div
-					class="navbar-center position-absolute start-50 translate-middle-x">
-					<a class="nav-link" href="/home"> <img
-						src="${pageContext.request.contextPath}/images/logoBamboo.png"
-						alt="Bamboo Logo" class="logo-navbar">
-					</a>
-				</div>
-
-				<div class="navbar-right ms-auto">
-					<a class="nav-link" href="/welcome"> <i class="bi bi-person"></i>
-					</a>
-				</div>
-
-			</div>
-
-		</nav>
+    </div>
+</nav>
 
 		<!-- Menù a tendina -->
 		<div id="sideMenu" class="side-menu">

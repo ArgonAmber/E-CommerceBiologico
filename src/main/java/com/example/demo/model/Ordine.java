@@ -1,10 +1,12 @@
 package com.example.demo.model;
 
 import java.util.Objects;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 
 public class Ordine {
+
 
     @Id
     private int id;
@@ -101,4 +103,5 @@ public class Ordine {
                 + ", metodoPagamento=" + metodoPagamento + ", numeroCarta=" + numeroCarta + ", scadenza=" + scadenza
                 + ", cvv=" + cvv + ", paypalEmail=" + paypalEmail + "]";
     }
+
 }

@@ -1,5 +1,3 @@
-
-
 var menu = "close";
 function MenuMobile() {
     var sideMenu = document.getElementById("sideMenu");
@@ -360,4 +358,3 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 	
 	
-
