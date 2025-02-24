@@ -1,5 +1,6 @@
 package com.example.demo.ctr;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.demo.model.Account;
 import com.example.demo.repo.AccountRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class AccountController {
 	
@@ -25,26 +28,32 @@ public class AccountController {
     PasswordEncoder passwordEncoder;
 	
 	
-	@PostMapping("/login")
-	public String login(@RequestParam String username, @RequestParam String password, @RequestParam String userType, Model model) {
+	@PostMapping("/login")	
+	public String login(@RequestParam String username, 
+	                    @RequestParam String password, 
+	                    @RequestParam String userType, 
+	                    Model model, 
+	                    HttpSession session) { // Aggiunto HttpSession
 	    // Verifica che il tipo di utente sia valido
 	    if ("admin".equals(userType)) {
-	        return loginAdmin(username, password, model);  // Login per il dipendente
+	    	System.out.println("Accesso come dipendente");
+	        return loginAdmin(username, password, model, session);  // Passiamo anche la sessione
 	    } else if ("user".equals(userType)) {
-	        return loginUser(username, password, model);   // Login per l'utente normale
+	    	System.out.println("Accesso come utente");
+	        return loginUser(username, password, model, session);   // Passiamo anche la sessione
 	    } else {
 	        model.addAttribute("error", "Tipo di utente non valido");
 	        return "welcome";  // Redirezione in caso di tipo utente non valido
 	    }
 	}
-
-	public String loginAdmin(String username, String password, Model model) {
+	public String loginUser(String username, String password, Model model, HttpSession session) {
 	    Account accountEsistente = ar.findByUsername(username);
 	    if (accountEsistente != null) {
 	        System.out.println("Username trovato: " + accountEsistente.getUsername());
 	        if (passwordEncoder.matches(password, accountEsistente.getPassword())) {
 	            System.out.println("Password corretta");
-	            return "areaDipendente";  // Redirezione all'area dipendente
+	            session.setAttribute("utente", accountEsistente.getUsername()); // Salva in sessione
+	            return "redirect:/areaUtente"; // Redireziona all'area utente
 	        } else {
 	            System.out.println("Password errata");
 	        }
@@ -52,16 +61,17 @@ public class AccountController {
 	        System.out.println("Username non trovato");
 	    }
 	    model.addAttribute("error", "Username o password errati");
-	    return "welcome";  // Redirezione alla pagina di login in caso di errore
+	    return "welcome"; // Ritorna alla pagina di login in caso di errore
 	}
 
-	public String loginUser(String username, String password, Model model) {
+	public String loginAdmin(String username, String password, Model model, HttpSession session) {
 	    Account accountEsistente = ar.findByUsername(username);
 	    if (accountEsistente != null) {
 	        System.out.println("Username trovato: " + accountEsistente.getUsername());
 	        if (passwordEncoder.matches(password, accountEsistente.getPassword())) {
 	            System.out.println("Password corretta");
-	            return "areaUtente";  // Redirezione all'area utente
+	            session.setAttribute("utente", accountEsistente.getUsername()); // Salva in sessione
+	            return "redirect:/areaDipendente"; // Redireziona all'area dipendente
 	        } else {
 	            System.out.println("Password errata");
 	        }
@@ -69,7 +79,7 @@ public class AccountController {
 	        System.out.println("Username non trovato");
 	    }
 	    model.addAttribute("error", "Username o password errati");
-	    return "welcome";  // Redirezione alla pagina di login in caso di errore
+	    return "welcome"; // Ritorna alla pagina di login in caso di errore
 	}
 
     
@@ -100,7 +110,7 @@ public class AccountController {
         	//cripta la password prima di salvarla
             account.setPassword(passwordEncoder.encode(account.getPassword()));
             ar.save(account);
-            return "areaUtente";
+            return "home";
         }
     }
     
@@ -115,19 +125,33 @@ public class AccountController {
         
          
     @GetMapping("/areaUtente")
-    public String areaUtente() {
-        return "areaUtente"; 
+    public String areaUtente(Principal principal, Model model) {
+        if (principal == null) {
+            return "redirect:/login"; // Se non è autenticato, lo rimanda al login
+        }
+        model.addAttribute("username", principal.getName());
+        return "areaUtente"; // Se è loggato, entra nell'area utente
     }
     
     @GetMapping("/areaDipendente")
-    public String areaDipendente() {
-        return "areaDipendente"; 
+    public String areaDipendente(Principal principal, Model model) {
+        if (principal == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("username", principal.getName());
+        return "areaDipendente";
     }
     
     @GetMapping("/account/list")
     @ResponseBody
     public List<Account> getAllAccounts() {
         return (List<Account>) ar.findAll();
+    }
+    
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // Invalida la sessione, facendo il logout effettivo
+        return "redirect:/welcome"; // Torna alla pagina di login
     }
 
     

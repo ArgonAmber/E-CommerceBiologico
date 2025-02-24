@@ -1,21 +1,33 @@
 package com.example.demo.ctr;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.demo.model.Account;
 import com.example.demo.model.Ordine;
+import com.example.demo.repo.AccountRepository;
 import com.example.demo.repo.OrdineRepository;
 
-@RestController
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+
 @RequestMapping("ordine")
 public class OrdineController {
 	
@@ -38,4 +50,84 @@ public class OrdineController {
         }
     }
 
+	
+	@PostMapping("/salva")
+	public ResponseEntity<String> salvaOrdine(@RequestParam String nome, 
+	                                          @RequestParam String email,
+	                                          @RequestParam String metodoPagamento,
+	                                          @RequestParam(required = false) String numeroCarta,
+	                                          @RequestParam(required = false) String scadenza,
+	                                          @RequestParam(required = false) String cvv,
+	                                          @RequestParam(required = false) String paypalEmail,
+	                                          HttpSession session) {
+	    // Creiamo l'ordine con i dati ricevuti
+	    Ordine ordine = new Ordine();
+	    ordine.setUsername(nome);
+	    ordine.setEmail(email);
+	    ordine.setCodOrdine("ORD-" + System.currentTimeMillis()); // Codice univoco simulato
+	    ordine.setMetodoPagamento(metodoPagamento);
+
+	    if ("Carta".equals(metodoPagamento)) {
+	        ordine.setNumeroCarta(numeroCarta);
+	        ordine.setScadenza(scadenza);
+	        ordine.setCvv(cvv);
+	    } else if ("PayPal".equals(metodoPagamento)) {
+	        ordine.setPaypalEmail(paypalEmail);
+	    }
+
+	    // Salviamo l'ordine nella sessione
+	    session.setAttribute("ordine", ordine);
+
+	    return ResponseEntity.ok("Ordine salvato con successo");
+	}
+	
+	@GetMapping("/acquistoSuccess")
+	public String mostraPaginaSuccesso(HttpSession session, Model model) {
+	    // Recupera l'ordine dalla sessione
+	    Ordine ordine = (Ordine) session.getAttribute("ordine");
+
+	    // Se l'ordine non esiste, reindirizza alla home
+	    if (ordine == null) {
+	        return "redirect:/home";
+	    }
+
+	    // Passiamo l'ordine alla vista JSP
+	    model.addAttribute("ordine", ordine);
+	    
+	    // SVUOTARE IL CARRELLO DOPO IL PAGAMENTO
+	    session.removeAttribute("carrello");
+
+	    // Mostra la JSP di conferma (che deve essere in WEB-INF/views/)
+	    return "acquistoSuccess";
+	}
+	
+	@Autowired
+	private AccountRepository accountRepository; // Assicurati che il repository sia iniettato
+
+	@GetMapping("/storico")
+	@ResponseBody
+	public List<Ordine> storicoOrdini(HttpSession session) {
+	    // Recupera il nome utente dalla sessione
+	    String username = (String) session.getAttribute("utente");
+
+	    if (username == null) {
+	        return new ArrayList<>(); // Se non è loggato, restituisce una lista vuota
+	    }
+
+	    // Troviamo l'account nel database
+	    Account utente = accountRepository.findByUsername(username); // CORRETTA CHIAMATA AL METODO
+
+	    if (utente == null) {
+	        return new ArrayList<>(); // Se non trova l'account, restituisce lista vuota
+	    }
+
+	    // Recupera gli ordini dal database per quell'utente
+	    return ordineRepository.findByIdUtente(utente.getId());
+	}
+
+	
 }
+
+
+
+

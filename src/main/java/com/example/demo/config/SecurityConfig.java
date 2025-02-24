@@ -2,21 +2,22 @@ package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.servlet.http.HttpSession;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-	
-	@Autowired
+
+    @Autowired
     private CustomAuthenticationSuccessHandler successHandler;
-	
+
     private final UserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
 
@@ -27,29 +28,29 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    	
-    	 System.out.println("Security Config loaded");
-    	
         http
-        
-        		
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                                .requestMatchers("/areaUtente/**", "/areaDipendente/**").authenticated() // Specifica solo le pagine che richiedono autenticazione
-                                .requestMatchers("/account/list").authenticated()
-                                .requestMatchers("/ordine/ordini", "/ordine/delete").authenticated()
-                                .requestMatchers("/prodotto/update", "/prodotto/insert", "/prodotto/delete").authenticated()
-                                .requestMatchers("/prodotto/prodotti", "/preReg", "/register").permitAll() // Permetti tutte le richieste all'endpoint /prodotto/update
-                                .anyRequest().permitAll() // Tutte le altre richieste sono permesse senza autenticazione
-                )
-                .formLogin(formLogin -> formLogin
-                                .loginPage("/welcome").permitAll()
-                                .loginProcessingUrl("/login") // Specifica l'URL di elaborazione del login
-                                .successHandler(successHandler) // usiamo il nostro handler personalizzato visto che non vogliamo implementare authorities per adesso
-                )
-                .logout(logout -> logout.permitAll());
-        
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(authorizeRequests -> authorizeRequests
+                .requestMatchers("/areaUtente/**", "/areaDipendente/**").authenticated()
+                .requestMatchers("/account/list").authenticated()
+                .requestMatchers("/ordine/ordini", "/ordine/delete").authenticated()
+                .requestMatchers("/prodotto/update", "/prodotto/insert", "/prodotto/delete").authenticated()
+                .requestMatchers("/prodotto/prodotti", "/preReg", "/register").permitAll()
+                .anyRequest().permitAll()
+            )
+            .formLogin(formLogin -> formLogin
+                .loginPage("/welcome").permitAll()
+                .loginProcessingUrl("/login")
+                .successHandler(successHandler)
+            )
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/welcome") // Torna alla pagina di login dopo il logout
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .permitAll()
+            );
+
         return http.build();
     }
-
 }
