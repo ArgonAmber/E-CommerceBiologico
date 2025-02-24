@@ -1,6 +1,7 @@
 package com.example.demo.ctr;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.demo.model.Account;
 import com.example.demo.model.Ordine;
+import com.example.demo.repo.AccountRepository;
 import com.example.demo.repo.OrdineRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -96,6 +100,34 @@ public class OrdineController {
 	    // Mostra la JSP di conferma (che deve essere in WEB-INF/views/)
 	    return "acquistoSuccess";
 	}
+	
+	@Autowired
+	private AccountRepository accountRepository; // Assicurati che il repository sia iniettato
+
+	@GetMapping("/storico")
+	@ResponseBody
+	public List<Ordine> storicoOrdini(HttpSession session) {
+	    // Recupera il nome utente dalla sessione
+	    String username = (String) session.getAttribute("utente");
+
+	    if (username == null) {
+	        return new ArrayList<>(); // Se non è loggato, restituisce una lista vuota
+	    }
+
+	    // Troviamo l'account nel database
+	    Account utente = accountRepository.findByUsername(username); // CORRETTA CHIAMATA AL METODO
+
+	    if (utente == null) {
+	        return new ArrayList<>(); // Se non trova l'account, restituisce lista vuota
+	    }
+
+	    // Recupera gli ordini dal database per quell'utente
+	    return ordineRepository.findByIdUtente(utente.getId());
+	}
+
+	
 }
+
+
 
 

@@ -54,24 +54,43 @@ if (utente == null) {
             <a href="#" onclick="showOrders()">Storico Ordini</a>
         </div>
         
-        <div class="right-column" id="userContent">
-            <h2>Benvenuto nella tua Area Utente</h2>
-            <p>Gestisci i tuoi ordini e il tuo carrello.</p>
+ <div class="right-column" id="userContent">
+    <h2>Benvenuto nella tua Area Utente</h2>
+    <p>Gestisci i tuoi ordini e il tuo carrello.</p>
 
-            <!-- SEZIONE CARRELLO - INIZIALMENTE NASCOSTA -->
-            <div id="carrelloContainer" style="display: none;">
-                <h3>Il tuo carrello</h3>
-                <div id="carrello" class="row">
-                    <p class="text-center">Caricamento del carrello...</p>
-                </div>
-                <div class="text-end mt-3">
-                    <strong>Totale: <span id="cartTotal">0.00</span>€</strong>
-                </div>
-                <a href="${pageContext.request.contextPath}/views/payment.jsp">
-                    <button class="btn btn-success w-100 mt-3">Vai al checkout</button>
-                </a>
-            </div>
+    <!-- SEZIONE CARRELLO - INIZIALMENTE NASCOSTA -->
+    <div id="carrelloContainer" style="display: none;">
+        <h3>Il tuo carrello</h3>
+        <div id="carrello" class="row">
+            <p class="text-center">Caricamento del carrello...</p>
         </div>
+        <div class="text-end mt-3">
+            <strong>Totale: <span id="cartTotal">0.00</span>€</strong>
+        </div>
+        <a href="${pageContext.request.contextPath}/views/payment.jsp">
+            <button class="btn btn-success w-100 mt-3">Vai al checkout</button>
+        </a>
+    </div>
+
+    <!-- SEZIONE STORICO ORDINI - INIZIALMENTE NASCOSTA -->
+    <div id="storicoOrdiniContainer" style="display: none;">
+        <h3>Storico Ordini</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Codice Ordine</th>
+                    <th>Totale (€)</th>
+                    <th>Metodo Pagamento</th>
+                    <th>Data Ordine</th>
+                </tr>
+            </thead>
+            <tbody id="ordineTableBody">
+                <tr><td colspan="4" class="text-center">Caricamento degli ordini...</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
     </div>
 
     <!-- Footer -->

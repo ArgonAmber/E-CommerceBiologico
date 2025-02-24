@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
@@ -35,6 +37,13 @@ public class Ordine {
 
     @Column("paypalEmail")
     private String paypalEmail; 
+    
+    @Column("totale")
+    private BigDecimal totale; // Tipo BigDecimal per valori monetari
+    
+    @Column("dataOrdine")
+    private Timestamp dataOrdine;
+
 
     // Costruttore vuoto
     public Ordine() {
@@ -75,6 +84,14 @@ public class Ordine {
 
     public String getPaypalEmail() { return paypalEmail; }
     public void setPaypalEmail(String paypalEmail) { this.paypalEmail = paypalEmail; }
+    
+    public BigDecimal getTotale() { return totale; }
+    public void setTotale(BigDecimal totale) { this.totale = totale; }
+    
+    public Timestamp getDataOrdine() { return dataOrdine; }
+    public void setDataOrdine(Timestamp dataOrdine) { this.dataOrdine = dataOrdine; }
+
+    
 
     @Override
     public int hashCode() {
